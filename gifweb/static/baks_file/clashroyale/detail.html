@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta name="keywords" content="皇室战争骷髅召唤,皇室战争骷髅召唤怎么用,皇室战争骷髅召唤卡组搭配,皇室战争骷髅召唤被什么克制">
+	<meta name="description" content="973皇室战争_97973手游网室战争专区拥有最新最全的游戏数据，为玩家提供皇室战争Clash Royale骷髅召唤数据资料、骷髅召唤卡组搭配、骷髅召唤克制卡牌以及新闻攻略，欢迎访问口袋巴士皇室战争Clash Royale专区。">
+	<title>骷髅召唤数据详情及卡组搭配-97973手游网</title>
+	<link rel="stylesheet" href="./state/swiper.min.css">
+	<link rel="stylesheet" href="./state/style.css">
+	</script><script type="text/javascript" src="./state/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+<div style="display:none">
+<img src="./state/350x350.jpg" alt="">
+</div>
+	<div class="crDatabase">
+		<div class="banner pr">
+			<img src="./state/banner.png" alt="">
+
+			<a id="btnTab" class="pa btns btn_tab" href="javascript:void(0);">卡牌切换</a>
+		</div>
+		<div class="detail">
+			<!-- 英雄信息 -->
+			<dl id="hInfo" class="hinfo cl">
+			</dl>
+
+			<!-- 技能信息 -->
+			<div id="sInfo" class="swiperBox">
+				<div class="navWrapper">
+					<div id="" class="swiper-container swiper-container-horizontal swiperNav swiper-container-android">
+						<div class="swiper-wrapper">
+
+						</div>
+						<!-- Add Arrows -->
+						<div class="swiper-button-next swiper-button-disabled"></div>
+						<div class="swiper-button-prev swiper-button-disabled"></div>
+					</div>
+				</div>
+				<div id="" class="swiper-container swiper-container-horizontal swiperCtn swiper-container-android">
+					<div class="swiper-wrapper">
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 段落1 -->
+			<p id="brief" class="para1"></p>
+
+			<section id="combination" class="sec sec1"></section>
+
+			<section id="control" class="sec sec2"></section>
+
+
+		</div>
+		<div class="mask" id="mask" style="display: none;"></div>
+		<div id="cardLayer" class="cardLayer" style="display: none;">
+			<span class="close"></span>
+			<div class="scroll">
+				<ul class="cardBox cl">
+
+				</ul>
+			</div>
+		</div>
+    <script type="text/javascript">
+        var comment_params = {
+            url:'',
+            style:'http://static.ptbus.com/templet/631389/db/css/ptbus4.css'
+        };
+        var searcharr = location.search.substring(1).split("&");
+        var currentHeroId = -1;
+        for(var z = 0; z<searcharr.length;z++){
+            if(searcharr[z].indexOf("heroid") >= 0){
+                currentHeroId = parseInt(searcharr[z].split("=")[1]);
+                comment_params.url = "./detail.html/heroid"+currentHeroId +"/";
+            }
+        }
+    </script>
+    <script type="text/javascript" src="./state/show.js"></script>
+	</div>
+	<script type="text/javascript" src="./state/swiper.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//卡牌切换
+			$.ajax({
+			    url: "http://vgdb.ptbus.com/api/?s=card_list",
+			    type : "GET",
+			    dataType : "jsonp",
+			    success : function(data){
+			        var tempstr = "";
+			        if(data.code == 0){
+			            for(var i = 0; i<data.result.length; i++){
+                            tempstr +="<li><a href=\"./detail.html?heroid="+data.result[i].id +"\" target=\"_blank\"><img src="+ data.result[i].big_icon +"></a><h2><a href=\"./detail.html?heroid="+data.result[i].id +"\" target=\"_blank\">"+ data.result[i].name +"</a></h2></li>";
+			            }
+			            $(".cardLayer ul").html(tempstr);
+			            //$("#jscrollpan").jScrollPane();
+			        }else{
+			            //console.log(data.code);
+			        }
+			    }
+			});
+			$("#cardLayer ul").delegate("li", "click", function(event) {
+// 	            getHeroData(parseInt($(this).attr("data-heroid")));
+	            $("#cardLayer .close").click();
+	        });
+
+	        //获取英雄数据
+	        function getHeroData(heroid){
+
+	            $.ajax({
+	                url: "http://vgdb.ptbus.com/api/?s=card_info&id="+heroid,
+	                type : "GET",
+	                dataType : "jsonp",
+	                success : function(data){
+						//debugger;
+	                    var tempstr1 = tempstr2 = tempstr3 = tempstr4 = tempstr5 = "";
+	                    if(data.code == 0){
+	                    	//title keywords description
+	                        document.title = data.result[0].name +"数据详情及卡组搭配-口袋巴士皇室战争数据库";
+	                        var meta_k_d = "<meta name=\"keywords\" content=\"皇室战争"+ data.result[0].name +",皇室战争"+ data.result[0].name +"怎么用,皇室战争"+ data.result[0].name +"卡组搭配,皇室战争"+ data.result[0].name +"被什么克制\">";
+	                        meta_k_d += "<meta name=\"description\" content=\"口袋巴士皇室战争专区拥有最新最全的游戏数据，为玩家提供皇室战争Clash Royale"+ data.result[0].name +"数据资料、"+ data.result[0].name +"卡组搭配、"+ data.result[0].name +"克制卡牌以及新闻攻略，欢迎访问口袋巴士皇室战争Clash Royale专区。\">";
+	                        $("title").before(meta_k_d);
+	                        //英雄信息
+	                        tempstr1 +="<dt><img src=\""+ data.result[0].big_icon +"\"></dt>";
+	                        tempstr1 +="<dd class=\"cl\">";
+	                        if(data.result[0].rarity == "普通"){
+	                            tempstr1 +="<span class=\"type type1 fr\"><i>普通</i></span>";
+	                        }
+	                        if(data.result[0].rarity == "稀有"){
+	                            tempstr1 +="<span class=\"type type2 fr\"><i>稀有</i></span>";
+	                        }
+	                        if(data.result[0].rarity == "史诗"){
+	                            tempstr1 +="<span class=\"type type3 fr\"><i>史诗</i></span>";
+	                        }
+	                        tempstr1 +="<h2>"+ data.result[0].name +"<span>"+ data.result[0].category +"</span></h2>";
+	                        tempstr1 += "<ul class=\"cl\">";
+	                        if(data.result[0].move_speed != 0){
+	                            tempstr1 += "<li class=\"ico1\">移动速度：<span>"+ data.result[0].move_speed +"</span></li>";
+	                        }
+	                        tempstr1 +="<li class=\"ico2\">攻击目标：<span>"+ data.result[0].target +"</span></li>";
+	                        if(data.result[0].range != 0){
+	                            tempstr1 += "<li class=\"ico3\">攻击距离：<span>"+ data.result[0].range +"</span></li>";
+	                        }
+	                        if(data.result[0].hit_speed != 0){
+	                            tempstr1 += "<li class=\"ico4\">攻击速度：<span>"+ data.result[0].hit_speed +"</span></li>";
+	                        }
+	                        if(data.result[0].summons != 0){
+	                            tempstr1 += "<li class=\"ico5\">持续时间：<span>"+ data.result[0].summons +"</span></li>";
+	                        }
+	                        if(data.result[0].troops_num != 0){
+	                            tempstr1 += "<li class=\"ico6\">参战数量：<span>X"+ data.result[0].troops_num +"</span></li>";
+	                        }
+	                        tempstr1 += "</ul>";
+	                        tempstr1 +="</dd>";
+	                        $("#hInfo").html(tempstr1);
+
+	                        //技能信息
+	                        if(data.result[0].organize_data.length == 0){
+	                            $("#sInfo .swiper-wrapper").html("");
+	                        }else{
+	                            var x = 0;//补填剩余空格
+	                            for(var a = 0; a<data.result[0].organize_data.length; a++){
+	                                if(a == 0){
+	                                    tempstr2 += "<div class=\"swiper-slide active\">LV"+ (a+1) +"</div>";
+	                                    //tempstr3 += "<div class=\"swiper-slide\" style=\"display: block;\">";
+	                                }else{
+	                                    tempstr2 += "<div class=\"swiper-slide\">LV"+ (a+1) +"</div>";
+	                                    //tempstr3 += "<div class=\"swiper-slide\">";
+	                                }
+	                                tempstr3 += "<div class=\"swiper-slide\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tbody>";
+	                                x = 0;
+	                                var temptrH = "<tr>";
+	                                var temptrW = "";
+	                                for(var b in data.result[0].organize_data[a]){
+	                                	//console.log(b)
+	                                	var temptd = "";
+	                                    if(x == 0){
+	                                        temptd += "<td class=\"th\">"+ b +"</td><td><span class=\"cg\">"+ data.result[0].organize_data[a][b] +"</span></td>";
+	                                    }else if(x == 1){
+	                                        temptd += "<td class=\"th\">"+ b +"</td><td><span class=\"cr\">"+ data.result[0].organize_data[a][b] +"</span></td>";
+	                                    }else{
+	                                        temptd += "<td class=\"th\">"+ b +"</td><td><span>"+ data.result[0].organize_data[a][b] +"</span></td>";
+	                                    }
+	                                    temptrH += temptd;
+	                                    temptrW += temptrH;
+	                                    if((x+1)%2==0){
+	                                    	temptrW += "</tr>";
+	                                    	temptrH = "<tr>";
+	                                    }else{
+	                                    	temptrH = "";
+	                                    }
+	                                    x++;
+	                                }
+	                                if(x%2>0){
+	                                	for(var y = 0;y<2-x%2;y++){
+	                                	    temptrW += "<td>&nbsp;</td><td>&nbsp;</td>";
+	                                	}
+	                                	temptrW += "<tr/>"
+	                                }
+
+	                                tempstr3 += temptrW;
+	                                tempstr3 += "</tbody></table></div>";
+	                            }
+	                            tempstr3 += "</div>";
+	                            $(".swiperNav .swiper-wrapper").html(tempstr2);
+	                            $(".swiperCtn .swiper-wrapper").html(tempstr3);
+
+	                            swiperInit();
+	                        }
+
+	                        //段落
+	                        $("#brief").html(data.result[0].intro);
+
+	                        //战术组合
+	                        if(data.result[0].combination != null){
+	                            tempstr4 += "<h2 class=\"comtit\">战术组合</h2><ul class=\"cardBox cl\">";
+	                            for(var c = 0; c<data.result[0].combination.length; c++){
+	                                tempstr4 += "<li><a href=\"http://m.ptbus.com/crdb/detail.html?heroid="+data.result[0].combination[c].id +"\" target=\"_blank\"><img src=\""+ data.result[0].combination[c].icon +"\"><p>"+ data.result[0].combination[c].name +"</p></a></li>";
+	                            }
+	                            tempstr4 += "</ul><p class=\"para2\">"+ data.result[0].desc1 +"</p>";
+	                            $("#combination").html(tempstr4);
+	                        }else{
+	                            $("#combination").html("");
+	                        }
+	                        //克制卡牌
+	                        if(data.result[0].control != null){
+	                            tempstr5 += "<h2 class=\"comtit\">克制卡牌</h2><ul class=\"cardBox cl\">";
+	                            for(var d = 0; d<data.result[0].control.length; d++){
+	                                tempstr5 += "<li><a href=\"http://m.ptbus.com/crdb/detail.html?heroid="+data.result[0].control[c].id +"\" target=\"_blank\"><img src=\""+ data.result[0].control[d].icon +"\"><p>"+ data.result[0].control[d].name +"</p></a></li>";
+	                            }
+	                            tempstr5 += "</ul><p class=\"para2\">"+ data.result[0].desc2 +"</p>";
+	                            $("#control").html(tempstr5);
+	                        }else{
+	                            $("#control").html("");
+	                        }
+	                    }
+	                }
+	            });
+	        }
+
+
+
+
+			//轮播
+			function swiperInit(){
+			    var swiperNav = new Swiper(".swiperNav",{
+			    	slidesPerView: 5,
+			    	spaceBetween: 10,
+			    	nextButton: ".swiper-button-next",
+	        		prevButton: ".swiper-button-prev",
+	        		observer:true,
+	        		onInit: function(){}
+			    });
+			    var swiperCtn = new Swiper(".swiperCtn", {observer:true, loop: false});
+			    //swiperCtn.params.control = swiperNav;
+
+			    swiperCtn.on("slideChangeStart",function(myswiper){
+			    	$(".swiperNav .swiper-slide").eq(myswiper.activeIndex).addClass("active").siblings().removeClass("active");
+			    	swiperNav.slideTo(myswiper.activeIndex);
+			    });
+
+			    swiperNav.on("click", function(myswiper){
+			    	$(".swiperNav .swiper-slide").eq(myswiper.clickedIndex).addClass("active").siblings().removeClass("active");
+			    	swiperCtn.slideTo(myswiper.clickedIndex);
+			    });
+
+			}
+
+
+		    $("#btnTab").click(function(){
+		    	$(".cardLayer").show();
+		    	$("#mask").show();
+		    });
+
+		    $(".cardLayer .close").click(function(){
+		    	$(this).parent().hide();
+		    	$("#mask").hide();
+		    });
+
+		    //获取location.search的 hreoid 初始化页面
+		    var searcharr = location.search.substring(1).split("&");
+
+		    for(var z = 0; z<searcharr.length;z++){
+		        if(searcharr[z].indexOf("heroid") >= 0){
+		            getHeroData(parseInt(searcharr[z].split("=")[1]));
+		        }
+		    }
+
+		});
+	</script>
+
+
+</body></html>

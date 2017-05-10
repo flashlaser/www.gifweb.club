@@ -1,0 +1,47 @@
+@charset "utf-8";
+/*----------专区游戏详情------------------*/
+.yqdicon{background: url("../images/v1/yqdicon.png") no-repeat;background-size:78px 31px;vertical-align: middle;}
+.gamepictitle{position: relative;}
+.beijing{max-height:297px;}
+.beijing img{height:100%;max-height: 297px;}
+.gamepictitle img{width: 100%;}
+.game-detail{margin:33px 8px 0px;}
+.gameimg{position: absolute; bottom: -30px; left: 8px;}
+.gmname p{font-size: 20px;}
+.box-title{padding-top: 14px;}
+.detail-cont{padding: 0 8px;}
+.detail-cont p{font-size: 1.7rem; margin: 0; line-height: 2.7rem;}
+.yqd i{display:block;height:31px;width:31px;margin-bottom: 5px;}
+.yqd>div{padding: 18px 8px; }
+.yqd .good i{background-position:0 0;width: 35px;}
+.yqd .bad i{background-position:-47px 0;}
+.yqd .ct-list{margin-top: 5px;font-size: 1.5rem}
+.yqd p{margin: 0;line-height: 22px;}
+.yqd div .tb{font-size: 12px;color: #666666;text-align: center;margin-right: 25px;}
+.yqd>div.good .vericlline{display:none;}
+.xbjp hr.seprLine{margin: 0;}
+.xbjp .box-title{padding-bottom: 15px;}
+hr.marginT0{margin-top: 0;}
+.vericlline{height: 15px;}
+@media screen and (min-width: 997px) {
+     hr{display: none;}
+    .content{padding-top: 0;}
+    .yqd{  border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;  margin-bottom: 5px !important;}
+    .yqd>div.good, .yqd>div.bad {padding-left: 108px;padding-left: 9rem;}
+    .yqd div.col-md-6 .tb{float: none;  margin: 0;text-align: left;font-size: 14px;}
+    .yqd i.yqdicon{display: inline-block;margin-right: 8px;}
+    .yqd .good i.yqdicon{height:29px;width:33px;background-position: 0 0;}
+    .yqd .bad i.yqdicon{height:29px;width:30px;background-position: -46px 0;}
+    .yqd .ct-list {margin-top: 15px; float: none;font-size: 14px; }
+    .detail-cont p{font-size: 14px;margin-bottom: 30px;text-indent: 28px;}
+    .box-title{padding-bottom: 18px;padding-top: 36px;}
+    .gamepictitle .gameimg{left: 50%; margin-left: -43px; width: 86px; height: 86px; border: 5px solid #fff; border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%; background-color: #5677fc; }
+    .gameimg img{border-radius: 50%;-webkit-border-radius: 50%; -moz-border-radius: 50%;}
+    .gmname .abstitle{text-align: center; width: 100%; position: absolute; left: 0; }
+    .gmname p { font-size: 16px; font-weight: bold;}
+    .gmname .p2 { padding: 28px 0 4px;}
+    .yqd>div.good .vericlline{display:block;height: 80px; position: absolute; right: 0; top: 26px;width: 1px;}
+    .beijing .yueya{position: absolute;bottom: 0;left: 0;background:url("../images/v1/yueya.png") no-repeat;width: 100%;height:8px;}
+    .yqd .yqdicon{background: url("../images/v1/yqdiconpc.png") no-repeat;}
+}
+

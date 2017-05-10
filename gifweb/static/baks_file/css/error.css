@@ -1,0 +1,25 @@
+@charset "utf-8";
+.wrap{font-family: 黑体 ;max-width: 780px;
+    overflow: hidden;}
+.role{margin-top: 3rem}
+.role img{width: 100%;}
+.txt-tip{text-align: center; margin-top: 28px; margin-bottom: 22px;}
+.txt-tip .p1{font-size: 2rem; color: #fc393e;}
+.txt-tip .p2{font-size: 1.2rem; color: #909090; }
+.p2 em{color: #fc5356;}
+.backbtn{text-align: center; width: 100%; line-height: 36px; margin-bottom: 50px;}
+.backbtn a{font-size: 14px; color: #fff; background-color: #587bf8; padding: 11px 29px; margin: 0 10px;}
+.backbtn a.backprev{ padding: 11px 22px;}
+.pc-add{display: none;}
+@media screen and (min-width: 997px) {
+    .wrap{width: 780px; position: absolute; top: 50%;left:50%; margin-top: -182px; margin-left: -390px; }
+    .role{width: 636px;margin-right: -114px;}
+    .absoluteleft{position: absolute; top: 0; left: 0;}
+    .pc-add{display: block;}
+    .backbtn a.backprev{background-color:#acbdff;}
+    .txt-tip .p1{font-size: 28px;}
+    .txt-tip .p2{font-size: 14px;}
+    .gameservice{margin:0 auto;}
+    .backbtn{margin-bottom: 40px;}
+}
+

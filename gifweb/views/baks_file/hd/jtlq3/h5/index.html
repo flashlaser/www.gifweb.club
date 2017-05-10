@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content="<{$seo.title}>"/>
+    <meta name="description" content="<{$seo.description}>">
+    <link href="http://games.sina.com.cn/308/2014/reset.css" rel="stylesheet" type="text/css"/>
+    <script src="http://n.sinaimg.cn/game/homepage/js/jquery.min.js"></script>
+    <script src="/gl/static/hd/jtlq3/h5/js/swiper.min.js"></script>
+    <meta itemprop="name" content='<{$seo.title}>'/>
+    <meta itemprop="image" content="http://n.sinaimg.cn/97973/5c0313c7/20161128/QQTuPian20161128150740.png" />
+    <title><{$seo.title}></title>
+    <script>
+        new function () {
+            var _self = this;
+            _self.width = 640;
+            _self.fontSize = 100;
+            _self.widthProportion = function () {
+                var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+
+                return p > 1 ? 1 : p;
+            };
+            _self.changePage = function () {
+                document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important");
+            }
+
+            _self.changePage();
+            window.addEventListener("resize", function () {
+                _self.changePage();
+            }, false);
+        };
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?457beebb622d3780f367cfa604ba91a9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<style>
+    html,body{width: 100%; height: 100%; overflow: hidden; }
+    img{width: 100%;}
+    .swiper-container,.swiper-wrapper{width: 100%; height: 100%;text-align: center;}
+    .swiper-slide{width: 100%; height: 100%; position: relative; overflow: hidden;}
+    .part1{background: url("/gl/static/hd/jtlq3/h5/images/b1.jpg") no-repeat top center; background-size: 100% 100%;}
+    .part2,.part3,.part4{background: url("/gl/static/hd/jtlq3/h5/images/b2.jpg") no-repeat top center; background-size: 100% 100%;}
+    .part5{background: url("/gl/static/hd/jtlq3/h5/images/b3.jpg") no-repeat top center; background-size: cover;}
+    .music_icon{width: 0.74rem; position: absolute; top: 0.25rem; right: 0.2rem; }
+    .music_icon.open{animation: turn 3s infinite linear; -webkit-animation: turn 3s infinite linear;}
+    @keyframes turn {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
+    }
+    @-webkit-keyframes turn {
+        0%{transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
+    }
+    .down{width: 0.46rem; position: absolute;  bottom: 0.2rem; left: 50%; margin-left: -0.24rem;animation: biubiu 2s infinite linear;  -webkit-animation:biubiu 2s infinite linear;}
+    @keyframes biubiu
+    {
+        0%{opacity: 1;}
+        50%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+    @-webkit-keyframes biubiu
+    {
+        0%{opacity: 1;}
+        50%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+    .p2_con,.p3_con,.p4_con{width: 100%; position: absolute; top: 50%; transform: translate(0,-50%); -webkit-transform: translate(0,-50%); box-sizing: border-box; padding: 0 10px;}
+    .p2_1{width: 4.3rem;}
+    .p2_2{width: 100%; margin: 10px auto 20px;}
+    .p2_3{width: 50%;}
+    .p3_1{width: 4.7rem; margin-bottom: 10px}
+    .p3_con .team{display: flex; display: -webkit-flex; justify-content: space-around; -webkit-justify-content: space-around; margin-bottom: 10px;}
+    .p3_con .team img{width: 1.92rem; height: 1.65rem;}
+    .number span{font-size: 0.24rem; color: #fff;}
+    .number span.left{float: left;  margin-left: 10px;}
+    .number span.right{float: right;  margin-right: 10px;}
+    .vote .bili{width: 100%; height: 0.3rem; background: #ed7226; overflow: hidden; border-radius: 0.25rem; border: 0.1rem solid #000;}
+    .vote .bili i{display: block; width: 50%; background: #85cfe6; height: 0.3rem;}
+    .p3_con .btn{display: flex; display: -webkit-flex; justify-content: space-between; -webkit-justify-content: space-between;}
+    .p3_con .btn img{width: 3.15rem; height: 0.9rem;}
+    .p3_6{margin: 10px auto;}
+
+    .p4_1{width: 2.8rem; margin-bottom: 10px;}
+
+    .pinglun{width: 300px; height: 400px; margin: 0 auto; position: relative;}
+    .pinglun .title{height: 45px;}
+    .pinglun .title a{display: inline-block;  font-size: 16px; padding: 0 10px; height: 40px; line-height: 40px; float: left; box-sizing: border-box; position: relative; top: 5px; z-index: 2; box-sizing: border-box; }
+    .pinglun .title a.a1{color: #006e9c; margin-right: 10px; background: #85cfe6; border-top-left-radius: 5px; border-top-right-radius: 5px; border: 5px solid #85cfe6; border-bottom: none;}
+    .pinglun .title a.a2{color: #873400; background: #ed7226; border-top-left-radius: 5px; border-top-right-radius: 5px; border: 5px solid #ed7226; border-bottom: none;}
+    .pinglun .title a.active{ height: 45px; background: #fff; }
+
+    .pinglun .pl_con{background: #fff; height: 360px; box-sizing: border-box; border: 5px solid #85cfe6; border-radius: 20px; border-top-left-radius: 0; overflow: hidden; }
+    .pl_con ul{height: 350px; overflow: scroll;     padding-bottom: 20px;box-sizing: border-box;}
+    .pl_con li{display: flex; display: -webkit-flex; padding: 10px 0; margin: 0 10px; border-bottom: 1px solid #dedede;}
+    .pl_con li img{width: 40px; height: 40px; border-radius: 50%; overflow: hidden; margin-right: 10px;}
+    .pl_con li .infor{flex: 1; -webkit-flex: 1;text-align: left; }
+    .pl_con li .infor .topleft{overflow: hidden; width: 100%; }
+    .pl_con li .infor .topleft span{float: left; line-height: 22px;display: block; width: 150px; }
+    .pl_con li .infor .topleft .name{font-size: 15px; color: #474747; }
+    .pl_con li .infor .topleft .time{color: #999999; font-size: 12px;}
+    .pl_con li .infor .topleft .zan {width: 50px;  height: 15px;  float: right;  overflow: hidden;}
+    .pl_con li .infor .topleft .zan img {    width: 12px;  height: 12px;  border-radius: 0;  vertical-align: middle;}
+    .pl_con li .infor .infor_con{line-height: 18px; font-size: 13px;}
+
+    .pinglun .xie{display: block; width: 100%; height: 30px; background: #85cfe6; position: absolute; bottom: -5px; left: 0; border-radius: 10px 10px 30px 30px; color: #006e9c; font-size: 16px; text-align: center; line-height: 30px;}
+
+    .p5_1{width: 4.39rem; position: absolute; bottom: 50px; left: 50%; margin-left: -2.19rem;}
+    @media screen and (max-height: 500px) {
+        .p5_1 {
+           bottom: 20px;
+        }
+    }
+
+    .mask{width: 100%; height: 100%; background: rgba(0,0,0,0.6); position: fixed; top: 0; left: 0;}
+    .pop{position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); -webkit-transform: translate(-50%,-50%); }
+    .pop .close{width: 15px; height: 15px; position: absolute; top: 20px; right: 20px;}
+    .pop h2{font-size: 15px; color: #474747; line-height: 25px; height: 50px; width: 200px; text-align: center; margin: 25px auto 15px;}
+    .pop .pop_btn{width: 120px; }
+    .pop1,.pop2{width: 300px; height: 160px; background: url("/gl/static/hd/jtlq3/h5/images/pop1.png") no-repeat; background-size: 100% 100%; }
+    .pop textarea{width: 280px;  height: 300px;  margin-top: 10px; font-size: 16px; color: #474747;}
+
+    .rule{width: 100%; height: 100%; color: #fff; font-size: 16px; line-height: 24px; box-sizing: border-box; padding: 0 20px;}
+    .rule h3{font-size: 20px; margin: 20px auto;}
+    .rule p{text-align: left; margin-bottom: 15px;}
+    .rule span{color: #ed7226}
+
+    .loading{width: 50px; height: 50px;}
+
+    .pl_con li .infor .topleft .zan {width: 30px;  height: 15px;  float: right;  overflow: hidden; padding-left: 20px; }
+    .pl_con li .infor .topleft .zan.zan0 {background: url("/gl/static/hd/jtlq3/h5/images/zan1.png") no-repeat top left; background-size: 12px 12px;}
+    .pl_con li .infor .topleft .zan.zan1 {background: url("/gl/static/hd/jtlq3/h5/images/zan2.png") no-repeat top left; background-size: 12px 12px;}
+
+    .sharepic{width: 100%; height: 100%; background: url("/gl/static/hd/jtlq3/h5/images/share_pic.png") no-repeat top center; background-size: cover}
+</style>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide part1">
+            <img class="music_icon open" src="/gl/static/hd/jtlq3/h5/images/music_icon.png" />
+            <img class="down" src="/gl/static/hd/jtlq3/h5/images/down.png" />
+        </div>
+        <div class="swiper-slide part2">
+            <img class="music_icon open" src="/gl/static/hd/jtlq3/h5/images/music_icon.png" />
+            <img class="down" src="/gl/static/hd/jtlq3/h5/images/down.png" />
+            <div class="p2_con">
+                <img class="p2_1" src="/gl/static/hd/jtlq3/h5/images/p2_1.png" />
+                <img class="p2_2" src="/gl/static/hd/jtlq3/h5/images/p2_2.png" />
+                <img class="p2_3" src="/gl/static/hd/jtlq3/h5/images/p2_3.png" onclick="pop('.rule')"/>
+            </div>
+        </div>
+        <div class="swiper-slide part3">
+            <img class="music_icon open" src="/gl/static/hd/jtlq3/h5/images/music_icon.png" />
+            <img class="down" src="/gl/static/hd/jtlq3/h5/images/down.png" />
+            <div class="p3_con">
+                <img class="p3_1" src="/gl/static/hd/jtlq3/h5/images/p3_1.png" />
+                <div class="vote">
+                    <div class="team">
+                        <img class="p3_2" src="/gl/static/hd/jtlq3/h5/images/p3_2.png" />
+                        <img class="p3_3" src="/gl/static/hd/jtlq3/h5/images/p3_3.png" />
+                    </div>
+                    <div class="number">
+                        <span class="left"><{$itemInfo0['vote']}>票</span><span class="right"><{$itemInfo1['vote']}>票</span>
+                        <div class="bili"><i></i></div>
+                    </div>
+                    <div class="btn">
+                        <img class="p3_4" src="/gl/static/hd/jtlq3/h5/images/p3_4.png" />
+                        <img class="p3_5" src="/gl/static/hd/jtlq3/h5/images/p3_5.png" />
+                    </div>
+                    <img class="p3_6" src="/gl/static/hd/jtlq3/h5/images/p3_6.png" />
+                    <img class="p3_7" src="/gl/static/hd/jtlq3/h5/images/p3_7.png" />
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide part4">
+            <img class="music_icon open" src="/gl/static/hd/jtlq3/h5/images/music_icon.png" />
+            <img class="down" src="/gl/static/hd/jtlq3/h5/images/down.png" />
+            <div class="p4_con">
+                <img class="p4_1" src="/gl/static/hd/jtlq3/h5/images/p4_1.png" />
+                <div class="pinglun commom">
+                    <div class="title">
+                        <a class="a1 active" href="javascript:void(0)">情怀观点评论</a><a class="a2" href="javascript:void(0)">竞技观点评论</a>
+                    </div>
+                    <div class="pl_con">
+                        <ul class="swiper-no-swiping">
+                            <li>
+                                <img class="head_pic" src="/gl/static/hd/jtlq3/h5/images/p3_2.png" />
+                                <div class="infor">
+                                    <div class="topleft">
+                                        <span class="name">刘乐你是猪</span>
+                                        <span class="time">2016.01.01</span>
+                                        <div class="zan">9999</div>
+                                    </div>
+                                    <div class="infor_con">刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="pl_con" style="display: none">
+                        <ul class="swiper-no-swiping">
+                            <li>
+                                <img class="head_pic" src="/gl/static/hd/jtlq3/h5/images/p3_2.png" />
+                                <div class="infor">
+                                    <div class="topleft">
+                                        <span class="name">刘乐你是1猪</span>
+                                        <span class="time">2016.01.01</span>
+                                        <div class="zan"></div>
+                                    </div>
+                                    <div class="infor_con">刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪刘乐你是猪</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a class="xie" href="javascript:void(0)">撰写评论</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide part5">
+            <img class="music_icon open" src="/gl/static/hd/jtlq3/h5/images/music_icon.png" />
+            <img class="p5_1" src="/gl/static/hd/jtlq3/h5/images/p5_1.png" onclick="pop('.sharepic')" />
+        </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+    <audio style="display: none" src="/gl/static/hd/jtlq3/h5/Joosuc.mp3" autoplay loop></audio>
+
+    <!--弹窗-->
+    <div class="mask" style="display: none"></div>
+    <div class="pop pop1" style="display: none;">
+        <img class="close popClose" src="/gl/static/hd/jtlq3/h5/images/close.png" />
+        <h2>下载街头篮球攻略APP并登录才能参加活动</h2>
+        <img class="pop_btn popClose" src="/gl/static/hd/jtlq3/h5/images/a1.png" />
+        <img class="pop_btn" src="/gl/static/hd/jtlq3/h5/images/a2.png" onclick="openApp()"/>
+    </div>
+    <div class="pop pop2" style="display: none;">
+        <img class="close popClose" src="/gl/static/hd/jtlq3/h5/images/close.png" />
+        <h2>登陆了才能评论</h2>
+        <img class="pop_btn popClose" src="/gl/static/hd/jtlq3/h5/images/a1.png" />
+        <img class="pop_btn" src="/gl/static/hd/jtlq3/h5/images/a3.png" onclick="location.href='http://www.wan68.com/user/login?backUrl=<{base_url('hd/jtlq3')}>'" />
+    </div>
+    <div class="pinglun pop"  style="display: none">
+        <img class="close popClose" src="/gl/static/hd/jtlq3/h5/images/close.png">
+        <div class="title">
+            <a class="a1 active" href="javascript:void(0)">情怀观点评论</a><a class="a2" href="javascript:void(0)">竞技观点评论</a>
+        </div>
+        <div class="pl_con">
+            <textarea></textarea>
+        </div>
+        <div class="pl_con" style="display: none">
+            <textarea></textarea>
+        </div>
+        <a id="cmtSubmit" data-idx="" class="xie" href="javascript:void(0)">提交</a>
+    </div>
+    <div class="rule pop"  style="display: none">
+        <img class="close popClose" src="/gl/static/hd/jtlq3/h5/images/close.png" />
+        <h3>【活动规则】</h3>
+        <p>进入活动页面后，可为情怀和竞技两种观点投票，并且可在下方的评论区对两种观点进行评论。</p>
+        <p>点赞数排名前十的评论：<br>
+            点赞数最高的获得30Q币奖励<br>
+            点赞数排名第二~六的获得20Q币奖励<br>
+            点赞数排名第七~十的获得10Q币奖励。</p>
+        <p>每个账号只能参与一次活动。</p>
+        <h3>【活动时间】</h3>
+        <p>2016年12月16日——2016年12月31日</p>
+        <span>PS：支持任一观点，都有机会获得Q币奖励。</span>
+    </div>
+    <div class="pop sharepic popClose" style="display:none;" ></div>
+     <img class="pop loading" src="/gl/static/hd/jtlq3/h5/images/loading.gif" style="display:none;" />
+</div>
+</body>
+</html>
+<script>
+    function pop(cls) {
+        mySwiper.lockSwipes()
+        $('.mask').show();
+        $('.pop' + cls).show();
+    }
+
+    function close(cls) {
+        mySwiper.unlockSwipes()
+        if (cls) {
+            $('.pop' + cls).hide();
+            if (('.pop:visible').length > 0) {
+                $('.mask').hide();
+            }
+        } else {
+            $('.mask').hide();
+            $('.pop').hide();
+        }
+    }
+    var mySwiper = new Swiper ('.swiper-container', {
+        pagination : '.swiper-pagination',
+        direction: 'vertical',
+    })
+    $(function(){
+        var aud = false;
+        function touchPlay() {
+            if (aud) {
+                return;
+            }
+            aud = true;
+            if($('audio')[0].paused){
+                $('.music_icon').addClass('open');
+                $('audio')[0].play()
+            }
+        };
+        document.addEventListener('touchstart',touchPlay,false);
+
+        function actionLead() {
+            var isLogin = <{$isLogin}>;
+            var ua = '<{$ua}>';
+            var mat = /RaidersQA-(\d+)/g.exec(ua);
+
+            if (!mat || mat[1] != '13836') {
+                pop('.pop1');
+                return false;
+            }
+
+            if (!isLogin) {
+                pop('.pop2');
+                return false;
+            }
+            return true;
+        }
+
+
+        function NowActive(_this,number){
+            _this.addClass('active').siblings().removeClass('active');
+            var  parentBox = _this.parent().parent();
+            parentBox.find('.pl_con').hide().eq(number).show();
+            if(number == 0){
+                parentBox.find('.pl_con').css({'border' : '5px solid #85cfe6'})
+                parentBox.find('.xie').css({'color' : '#006e9c', 'background' : '#85cfe6'})
+            }else if(number == 1){
+                parentBox.find('.pl_con').css({'border' : '5px solid #ed7226'})
+                parentBox.find('.xie').css({ 'color' : '#873400', 'background' : '#ed7226'})
+            }
+        }
+
+        $('.commom .title a').click(function(){
+            var i = $(this).index();
+            NowActive($(this),i)
+        })
+        $('.pop .title a').click(function(){
+            var i = $(this).index();
+            $('#cmtSubmit').data('idx', i);
+            NowActive($(this),i)
+        })
+
+        $('.commom .xie').on('click',function(){
+            if (!actionLead()) {
+                return ;
+            }
+            pop('.pinglun');
+            var i = $(this).parent().find('.active').index();
+            $('#cmtSubmit').data('idx', i);
+            NowActive($('.pinglun.pop').find('.title a').eq(i),i)
+        })
+
+        $('.popClose').on('click', function () {
+            close();
+        });
+
+        Changebili();
+        var vote = false
+        $('.vote .btn').find('img').click(function(){
+           var vote_i = $(this).index();
+           if(!vote){
+               vote = true;
+               $.ajax({
+                   url:'/hd/jtlq3/ajax_vote/' + vote_i,
+                   dataType: "json",
+                   success:function (res) {
+                       if (res.result == 200) {
+                           $('.vote .number').find('span').eq(vote_i).text(res.data.vote + '票');
+                           Changebili();
+                           alert('感谢投票')
+                       } else {
+                           alert('该IP已投票');
+                       }
+                   },
+                   beforeSend:function () {
+                       pop('.loading');
+                   },
+                   complete:function () {
+                       close('.loading');
+                   }
+               });
+           }
+        })
+
+        function Changebili(){
+           var zong = parseInt($('.vote .number').find('span').eq(0).text()) + parseInt($('.vote .number').find('span').eq(1).text())
+           var bili = (parseInt($('.vote .number').find('span').eq(0).text()) / zong );
+           $('.bili i').css({'width' : bili * 100 + '%'})
+        }
+
+
+        $('.music_icon').on('click',function(){
+            if($('audio')[0].paused){
+                $('.music_icon').addClass('open');
+                $('audio')[0].play()
+            }else{
+                $('.music_icon').removeClass('open');
+                $('audio')[0].pause()
+            }
+        });
+
+        $('#cmtSubmit').on('click',function(){
+            if (!actionLead()) {
+                return ;
+            }
+            var idx = $(this).data('idx');
+            var content = $('.pinglun.pop textarea').eq(idx).val();
+
+            if (!content.length) {
+                return;
+            }
+            $.ajax({
+                url:'/hd/jtlq3/answer_save/' + idx,
+                dataType: "json",
+                data : {content : content},
+                success:function (res) {
+                    if (res.result == 200) {
+                        loadAnswer(idx, true);
+                        alert('发布成功');
+                        close();
+                    } else {
+                        alert(res.message)
+                    }
+                },
+                beforeSend:function () {
+                    pop('.loading');
+                },
+                complete:function () {
+                    close('.loading');
+                }
+            });
+        });
+
+        var pages = {0:0, 1:0};
+        function loadAnswer(idx, flush) {
+            var ul = $('.pinglun.commom ul').eq(idx);
+            if (flush) {
+                pages[idx] = 1;
+            } else if (pages[idx] < 0) {
+                return;
+            } else {
+                pages[idx]++;
+            }
+
+
+            $.ajax({
+                url:'/hd/jtlq3/ajax_answer_list/' + idx + '/' + pages[idx] ,
+                dataType: "json",
+                success:function (res) {
+                    if (res.result == 200) {
+                        if (flush) {
+                            ul.html('');
+                        }
+                        var html = '';
+                        for (var i in res.data) {
+                            html += '<li>';
+                            html += '    <img class="head_pic" src="' + res.data[i].author.headImg + '" />';
+                            html += '    <div class="infor">';
+                            html += '        <div class="topleft">';
+                            html += '            <span class="name">' + res.data[i].author.nickName +'</span>';
+                            html += '            <span class="time">' + res.data[i].updateTime + '</span>';
+                            html += '            <div class="zan zan' + res.data[i].hasAgree + '" data-id="' + res.data[i].absId + '" data-hasAgree="' + res.data[i].hasAgree + '">' + res.data[i].agreeCount + '</div>';
+                            html += '        </div>';
+                            html += '        <div class="infor_con">' + res.data[i].abstitle +'</div>';
+                            html += '    </div>';
+                            html += '</li>';
+                        }
+                        if (html.length || i < 9) {
+                            ul.append(html);
+                        } else {
+                            pages[idx] = -1;
+                        }
+                    } else {
+                        alert(res.message)
+                    }
+                },
+                beforeSend:function () {
+                    pop('.loading');
+                },
+                complete:function () {
+                    close('.loading');
+                }
+            });
+        }
+        loadAnswer(0, true);
+        loadAnswer(1, true);
+
+        $('.pinglun.commom').on('click', '.zan', function () {
+            if (!actionLead()) {
+                return ;
+            }
+            var ele = this;
+            var absId = $(ele).data('id');
+            var hasAgree = $(ele).data('hasagree');
+            var will = parseInt(hasAgree) ? 0 : 1;
+            $.ajax({
+                url:'/hd/jtlq3/praise_operate' ,
+                dataType: "json",
+                data : {newsid : absId, type: will},
+                success:function (res) {
+                    if (res.result == 200) {
+                        res.data.agreeCount = parseInt($(ele).html());
+                        if (will) {
+                            res.data.agreeCount++;
+                        } else {
+                            res.data.agreeCount--;
+                        }
+                        $(ele).data('hasagree', will).html(res.data.agreeCount);
+                        $(ele).removeClass('zan' + hasAgree).addClass('zan' + will);
+                    } else {
+                        alert(res.message)
+                    }
+                },
+                beforeSend:function () {
+                    pop('.loading');
+                },
+                complete:function () {
+                    close('.loading');
+                }
+            });
+        });
+
+
+        $('.pinglun.commom ul').on('scroll',function(){
+            // 加载更多
+            if ($(this).prop("scrollHeight") - $(this).outerHeight() - $(this).scrollTop() < 5) {
+                var idx = $('.pinglun.commom ul').index(this);
+                loadAnswer(idx);
+            }
+        })
+    })
+
+    function openApp(options) {
+        this.options = {
+            ios: {
+                scheme : 'sinaRaidersQAForjtlq://jump/jtlq/web?param=http://www.wan68.com/hd/jtlq3',
+                url : 'https://wan68.com/jump/jtlq/web?param=http://www.wan68.com/hd/jtlq3',
+                weichat : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider.jtlq'
+            },
+            android: {
+                scheme: 'sinaRaidersQAForjtlq://jump/jtlq/web?param=http://www.wan68.com/hd/jtlq3',
+                url : 'http://www.wan68.com/download/app_jtlq/2',
+                weichat : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider.jtlq'
+            }
+        };
+        for (i in options) {
+            this.options[i] = options[i];
+        }
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (/android/.test(ua)) {
+            var download = this.options.android;
+            if (/micromessenger/.test(ua)) {
+                if (download.weichat) {
+                    location.href = download.weichat;
+                }
+            } else if (download.url) {
+                var timestamp = Date.parse(new Date());
+                setTimeout(function() {
+                    if (download.url && Date.parse(new Date()) - timestamp < 3035) {
+                        location.href = download.url;
+                    }
+                }, 3000);
+                location.href = download.scheme.toLowerCase();
+            }
+        } else {
+            var download = this.options.ios;
+            if (/micromessenger/.test(ua)) {
+                if (download.weichat) {
+                    location.href = download.weichat;
+                }
+            } else {
+                var mat = /iphone os (\d+)/g.exec(ua);
+                if (mat && mat[1] > 8 && download.scheme) {
+                    location.href = download.url;
+                    return;
+                } else if (download.url) {
+                    var timestamp = Date.parse(new Date());
+                    setTimeout(function() {
+                        if (download.url && Date.parse(new Date()) - timestamp < 2026) {
+                            location.href = download.url;
+                        }
+                    }, 2000);
+                    location.href = download.scheme;
+                }
+            }
+        }
+    }
+
+</script>

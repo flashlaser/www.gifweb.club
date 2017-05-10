@@ -1,0 +1,87 @@
+﻿<{include file="./common/header.html"}>
+<div class="w">
+        <div class="main">
+            <ul class="list">
+			
+			
+				<{foreach from=$content_list item=item key=key}>
+                <li>
+                    <div class="cola">
+                        <span><{$item.format_date}></span>
+                    </div>
+                    <div class="colb">
+                        <div class="title"><strong><a href="index/info/?id=<{$item.cid}>" target="_blank"><{$item.title}></a></strong><span class='new'>最新</span></div>
+                        <div class="info">
+                            <div class="mb10">
+                                <span class="g9 mr50">
+                                    by <{$item.user_name}>
+                                </span>
+                                <span class="tag">
+                                    
+                                </span>
+                                <span class="g9 ml50">发布时间<{$item.create_time}></span>
+                            </div>
+                        </div>
+
+                        <div class="con">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <img class='bigimg' src="<{$item.img_url}>" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="share">
+                            <span class="dc">
+                                <span name="newdigg" id="newdigg13736"></span><a href="/" target="_blank" class="reply">0</a>
+                            </span>
+                            <span id="bdshare" class="bdshare_b" style="line-height: 12px;float:none;color:#4A7CB3;" data="{
+		                    'text':'<{$item.title}>...',
+                            'pic':'<{$item.img_url}>',
+                            'url':'http://www.gifweb.club/index/info?id=<{$item.cid}>'
+                            }">
+                                分享
+                            </span>
+                        </div>
+                        <div class="commentlist">
+                            <p class="ct">全部评论(<span>0</span>)</p>
+                            <ul id="msglist13736">
+                                
+                            </ul>
+                        </div>
+                        <div class="showcom" data-id="<{$item.cid}>"><span>发表评论</span></div>
+                        <div class="commentbox" style="display:none;">
+                            <div class="post">
+                                <p>发表评论</p>
+                                <textarea data-max="300" data-toggle="text-limit" placeholder="来来来~唠两句"></textarea>
+                                <div class="ovh">
+                                    <input type="button" class="btnPost r" aid="13736" value="评论" /><span><em class="n">0</em>/300</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<{/foreach}>
+            </ul>
+            <div class="mt20"></div>
+
+
+
+            <{$pages}>
+        </div>
+</div>
+<{include file='./common/right.html'}>
+    
+<{include file='./common/footer.html'}>
+<script>
+$(function(){
+showmsg('嘎嘎噶哈哈哈');
+});
+
+</script>
+	
+	
+
+

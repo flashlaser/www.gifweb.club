@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>动图网-搞笑我们是认真的</title>
+<meta name="description" content="动图网-搞笑我们是认真的" />
+<meta name="keywords" content="gif动态图" />
+
+<link href="/gifweb/static/css/base.css-1.css" rel="stylesheet" media="screen"type="text/css" />
+<script language="javascript" type="text/javascript" src="/gifweb/static/js/jquery.min.js"></script>
+<script language='javascript' type='text/javascript'>
+	function showmsg(msg) {
+		$("#showbox").text(msg).stop().fadeIn(500);
+		clearTimeout(t);
+		var t = setTimeout(function () { $('#showbox').fadeOut(500) }, 3000);
+	}
+</script>
+    
+</head>
+<body>
+<header>
+<div id="showbox" style="display:none;"></div>
+    <div class="w">
+        <div class="logo">
+            <a href="/">
+                <img src="/gifweb/static/images/logo.png" alt="动图网" />   
+            </a>
+            <i class="n">搞笑，我们是认真的</i>
+        </div>
+        <ul class="nav">
+            <li id="type12">
+                <a href="/">动态图</a>
+                <ul class="subnav">
+                    
+                    <li id="type2"><a href="/" >美女</a></li>
+                    
+                    <li id="type3"><a href="/" >搞笑</a></li>
+                    
+                </ul>
+            </li><li id="type5">
+                <a href="/" >小视频</a>
+                <ul class="subnav">
+                    
+                </ul>
+            </li><li id="type22">
+                <a href="/" >污漫画</a>
+                <ul class="subnav">
+                    
+                </ul>
+            </li><li id="type11">
+                <a href="/" >图文</a>
+                <ul class="subnav">
+                    
+                </ul>
+            </li><li id="type10">
+                <a href="/" >污段子</a>
+                <ul class="subnav">
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>

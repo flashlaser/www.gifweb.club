@@ -1,0 +1,130 @@
+
+ul{margin: 0;padding: 0}
+li{list-style: none}
+
+div:nth-child(1){
+    height: 47px;
+}
+div:nth-child(1) a{
+    float: left;
+    display: block;
+    width: 50%;
+    height: 47px;
+    text-align: center;
+    line-height: 47px;
+    color: #666666;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: solid 1px #e0e0e0;
+
+}
+div:nth-child(1) a:hover,
+div:nth-child(1) a.current
+{
+    color: #5577fc;
+    border-bottom: solid 1px #5577fc;
+    text-decoration:none;
+}
+div:nth-child(1) span{
+    position: absolute;
+    left: 49%;
+    color: #e0e0e0;
+    font-size: 24px;
+    line-height: 45px;
+}
+
+.titlename{
+    height: 40px;
+    background-color: #fafafa;
+    border-bottom: solid 1px #ebebeb;
+    color: #999999;
+}
+
+.titlename span{
+    display: inline-block;
+    float: left;
+    height: 100%;
+    text-align: center;
+    line-height: 38px;
+    font-size: 15px;
+}
+
+.titlename span:nth-child(1){
+    width: 15%;
+}
+.titlename span:nth-child(2){
+    width: 55%;
+}
+.titlename span:nth-child(3){
+    width: 30%;
+}
+
+.toplist ul li a{
+    display: block;
+    height: 75px;
+    width: 100%;
+    line-height: 75px;
+    font-size: 1em;
+    border-bottom: solid 1px #ebebeb;
+}
+
+
+.toplist ul li a >span{
+    display: inline-block;
+    height: 75px;
+    text-align: center;
+    float: left;
+
+}
+
+.toplist ul li a span:nth-child(2){position: relative}
+.toplist ul li a span:nth-child(2) .godimg{
+    position: absolute;
+    width: 16px;
+    left: 50px;
+    bottom: 15%;
+}
+
+.toplist ul li a .head{
+    border-radius: 50%;
+    margin-left: 20px;
+    height: 40px;
+    width: 40px;
+}
+
+.toplist ul li a >span:nth-child(1){
+    width: 15%;
+    color: #999999;
+    font-size: 20px;
+}
+
+.toplist ul li a >span:nth-child(1) img{
+    width: 35px;
+}
+
+.toplist ul li a >span:nth-child(2){
+    width: 13%;
+    text-align: left;
+}
+.toplist ul li a >span:nth-child(3){
+    width: 40%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   text-indent: 1em;
+    color: #999999;
+    font-size: 18px;
+    line-height: 77px;
+
+}
+.toplist ul li a >span:nth-child(4){
+    width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #4a4a4a;
+    font-size: 18px;
+    line-height: 77px;
+}
+

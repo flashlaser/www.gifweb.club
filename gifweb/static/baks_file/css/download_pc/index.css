@@ -1,0 +1,135 @@
+.head{
+    min-width:1200px;
+    max-width: 1920px;
+    width: 100%;
+    height:700px;
+    background: url(/gl/static/images/download_pc/them1.jpg) no-repeat center;
+    margin: 0 auto;
+}
+/*theme*/
+.theme{
+    min-width:1200px;
+    max-width: 1920px;
+    position: relative;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    margin: 0 auto;
+}
+.theme-cont{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%
+}
+.theme-bg-1{
+    height:627px;
+    background: url(/gl/static/images/download_pc/them2.jpg) no-repeat center;
+}
+.warp{
+    width: 1100px;
+    margin: 0 auto;
+}
+.warp .xz_l{
+    width: 230px;
+    height:319px;
+    background-color: rgba(0,0,0,0.2)!important;
+    background-color: #000;
+    filter: alpha(opacity = 20);
+    float: left;
+    border-radius: 25px;
+    padding: 50px;
+}
+.warp .xz_r{
+    width: 665px;
+   /* height:319px;*/
+    background-color: rgba(0,0,0,0.2)!important;
+    background-color: #000;
+    filter: alpha(opacity = 20);
+    float: right;
+    border-radius: 25px;
+    padding: 50px 50px 29px;
+}
+.warp .xz_l p{
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 10px;
+}
+.warp .xz_r h3{
+    color: #fff;
+    font-size: 32px;
+    font-weight: normal;
+}
+.warp .xz_r p{
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 16px;
+}
+.warp .xz_r .xz_r_con{
+    margin-top: 26px;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l{
+    width: 504px;
+    height: 160px;
+    float: left;
+}
+.warp .xz_r .xz_r_con .xz_r_con_r{
+    width: 160px;
+    height: 160px;
+    float: right;
+}
+
+.warp .xz_r .xz_r_con .xz_r_con_l .xz_r_con_l_t .iph_btn{
+    display: block;
+    width: 170px;
+    height: 70px;
+    background: url(/gl/static/images/download_pc/iphone_btn.png);
+    float: left;
+    font-size: 24px;
+    color: #474747;
+    padding-left: 60px;
+    line-height: 70px;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l .xz_r_con_l_t .and_btn{
+    display: block;
+    width: 170px;
+    height: 70px;
+    background: url(/gl/static/images/download_pc/an_btn.png);
+    float: left;
+    font-size: 24px;
+    color: #474747;
+    padding-left: 60px;
+    line-height: 70px;
+    margin-left: 20px;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l .fg{
+    width: 480px;
+    height: 1px;
+    background: #827ee9;
+    margin-top: 25px;
+    filter:alpha(opacity=40);
+    -moz-opacity:0.4;
+    opacity:0.4;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l .xz_r_con_l_b{
+    width: 504px;
+    height: 40px;
+    margin-top: 25px;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l .xz_r_con_l_b li{
+    width: 103px;
+    height: 38px;
+    border: 1px solid #8888e0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 38px;
+    float: left;
+    margin-right: 20px;
+}
+.warp .xz_r .xz_r_con .xz_r_con_l .xz_r_con_l_b li a{
+    color: #fff;
+}

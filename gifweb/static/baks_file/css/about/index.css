@@ -1,0 +1,50 @@
+/*通用全局设定*/
+body,input,button,select,textarea,table{font:14px '微软雅黑','宋体';}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}
+fieldset,img {border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+ol,ul{list-style:none;}
+input,button,select,textarea{outline:none;}
+textarea{resize:none;}
+a:link, a:visited,a:hover, a:active {text-decoration: none;}
+/*重设 HTML5 标签*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+audio,canvas,video {display:inline-block;*display:inline;*zoom:1;}
+/*==公用样式==*/
+.clear:after {visibility:hidden;display:block;font-size:0;content:"";clear:both;height:0;}
+.clear{zoom:1;}
+img{vertical-align: top;border:none;}
+
+.wrap{width:1200px;margin:0 auto;}
+.head{height:73px;}
+.logo{width:165px;float:left;margin-top:10px;margin-left:13px;}
+.nav{width:330px;float:right;}
+.part{background:#fff url(/gl/static/images/about/bg.jpg) no-repeat top center;}
+.nav a{display:inline-block;border-top:4px solid transparent;font-size:18px;line-height:69px;color:#000;}
+.nav i{display:inline-block;width:2px;height:17px;background:#e7e7e7;margin:0 22px;vertical-align: text-top;}
+.nav a.active{border-color:#d51626;color:#d51626;}
+
+.part{padding-top:162px;}
+.intro{width: 1101px; font-size: 18px; line-height: 30px; color: #3b3b3b; padding: 36px 80px 36px 20px; background: rgba(255,255,255,.6);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff,endColorstr=#99ffffff);/*border-left:22px solid #D51626;*/}
+.content{margin-top:40px;margin-bottom:100px;}
+.zhaopin{margin-bottom:100px;}
+.center { width: 1200px; margin: 0 auto; position: relative; overflow: hidden;background-color: #eeeefe; }
+.video { width: 750px; height: 586px; float: left; position: absolute; top: 50%; left:0; margin-top: -270px; }
+.s1 .textbox { color: #7376f9; right: 0; }
+.textbox { width: 448px; height: 400px; position: absolute; right: 0; top: 50%; margin-top: -170px; }
+.fr { float: right; }
+.show h1, .show h2 { opacity: 1; }
+h1 { font-size: 46px; margin-bottom: 15px; opacity: 0; transition: all 1s 0.5s; }
+h2 { font-weight: normal; margin-bottom: 66px; font-size: 28px; line-height: 40px; opacity: 0; transition: all 1s 0.5s; }
+.clear { zoom: 1; }
+.code img { margin-top: 2px; }
+.code a.a1 { margin-bottom: 10px; transition-delay: 0s; }
+.code a { display: inline-block; width: 214px; height: 61px; border-radius: 3px; background: url("http://www.wan68.com/gl/static/images/download/ios.png"); margin-left: 30px; opacity: 0.95; }
+.code a.a2 { background-image: url("http://www.wan68.com/gl/static/images/download/and.png?v=1"); transition-delay: 0s; }
+.bottom{font-size: 18px; line-height: 28px; margin-top: 30px; color: #3b3b3b;}
+.bottom h1{  margin: 5px auto; font-size: 16px; opacity: 1; font-weight: normal;}
+.bottom div{margin:10px auto;}
+.bottom div.p2{margin-top: 20px;}
+.bottom .p2 p{text-indent: 32px;}
+.fl { float: left; }
+.intro .logoimg{width: 90px;}

@@ -1,0 +1,95 @@
+/*--------- common-----------*/
+* { margin: 0; padding:0; font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft YaHei', 'Hiragino Sans GB', SimSun, sans-serif; }
+a, a:link, a:visited { color: inherit; text-decoration: none; font-size: inherit; }
+ul,li,ol { list-style: none; }
+html{ height: 100%; }
+body{ background: #e8e8e8; position: relative; min-height: 100%; min-width: 1000px; }
+.pull-left { float: left !important; }
+.pull-right { float: right !important; }
+.of-hid { overflow: hidden; }
+.hidden { display: none !important; }
+.header { background: #ffd611; }
+
+
+
+/*--------- 移动端 -----------*/
+
+.wap-page { max-width: 640px; margin: 0 auto; position: relative; }
+.wap-header { text-align: center; position: relative; background: #ffd300; } 
+.wap-header-bg, .android-wap-header-bg { width: 100%; }
+.wap-logo { position: absolute; width: 128px; height: 126px; left: 50%; margin-left: -63px; top: 16%; z-index: 9; }
+.wap-down-ios, .wap-down-android { position: absolute; right: 10px; display: inline-block; width: 160px; height: 64px; background: url(/gl/static/images/download/wap/down.png); background-size: 160px 136px; }
+.wap-down-ios { bottom: 16%; background-position: 0 0; }
+.wap-down-android { bottom: 6%; background-position: 0 -64px; }
+.wap-header-arrow-down { position: absolute; display: inline-block; width: 21px; height: 15px; left: 50%; margin-left: -10.5px; bottom: 7%; 
+	/*background: url(../images/wap/arrow-down.png);
+	background-size: 100%;*/
+	animation: arrow 1.5s ease-out 0s infinite normal;
+	-webkit-animation: arrow 1.5s ease-out 0s infinite normal;
+}
+
+.wap-content {}
+.wap-content.wap-card {  text-align: center; position: relative; background: #ffd300; }
+
+.wap-content.wap-card img, .wap-header.wap-card img:nth-child(1) { width: 100%; position: relative; }
+
+.erweima{position: absolute;width: 150px;right: 15px;margin-bottom: 50px;display: none;}
+.wap-header.wap-card img:nth-child(4){bottom:16%;}
+.wap-header.wap-card img:nth-child(5){bottom:6%}
+
+@media screen and (min-device-height: 500px) {
+	.wap-content.wap-card img { width: 100%; }
+}
+
+.wap-content.wap-card a, .Guide-android-modal a { position: absolute; width: 94px; height: 28px; bottom: 5%; left: 50%; margin-left: -47px; line-height: 28px; border: 1px solid #ccc; border-radius: 3px; color: #333; text-align: center; }
+.wap-content.wap-card:nth-child(3) a { border-color: #fff; color: #fff; }
+.wap-content.wap-card:nth-child(5) a { border-color: #fff; color: #fff; }
+
+.wap-footer { position: relative; background: #f0f0f0; }
+.wap-footer table { width: 100%; height: 100%; }
+.wap-footer table td { text-align: center; }
+.wap-contact { line-height: 27px;}
+.wap-contact-icon { display: inline-block; width: 26px; height: 27px; background: url(/gl/static/images/download/wap/lianxi.png); background-size: 26px 27px; margin-right: 10px; vertical-align: bottom; } 
+.wap-footer .wap-erwm { width: 118px; height: 118px; margin-top: 50px; margin-bottom: 5px; }
+.wap-footer .weixinNum { text-align: center; color: #ccc; }
+.wap-footer div {  width: 100%; margin-top: 40px; }
+.wap-footer div > p { text-align: center; color: #ccc; margin-top: 10px; }
+
+@media screen and (max-width: 1200px) {
+	body { min-width: 320px; }
+	.xs-hidden { display: none; }
+}
+/*箭头动画*/
+@keyframes arrow{
+	0% { opacity: 0; transform: translate(0,0); }
+	30% { opacity: 0;  transform: translate(0,0); }
+	100% { opacity: 1;  transform: translate(0,20px); }
+}
+@-webkit-keyframes arrow{
+	0% { opacity: 0; -webkit-transform: translate(0,0); }
+	30% { opacity: 0;  -webkit-transform: translate(0,0); }
+	100% { opacity: 1;  -webkit-transform: translate(0,20px); }
+}
+
+.share{
+	width: 140px;
+	height: 44px;
+	z-index: 999;
+	position: fixed;
+	top: 20px;
+	margin-left:500px
+}
+.share span{
+ display: inline-block;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.share span img{
+	width: 100%;
+}
+
+.share .erpop{
+	float: right;
+	margin-right: 25px;
+}

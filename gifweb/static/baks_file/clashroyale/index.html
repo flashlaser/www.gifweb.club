@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>973皇室战争_97973手游网</title>
+	<link rel="stylesheet" href="./state/style.css">
+</head>
+<body>
+<div style="display:none">
+<img src="./state/350x350.jpg" alt="">
+</div>
+	<div class="crDatabase">
+		<div class="banner pr">
+			<img src="./state/banner.png" alt="">						
+		</div>
+		<div class="content">
+			<div class="cardList">
+				<nav id="filter-nav">
+					<li id="all-card">
+						全部
+					</li>
+					<li id="type-category">
+						<span>类型</span>
+						<ul>
+							<li filter="all" class="cur">全部</li> 
+							<li filter="1">随从</li>
+							<li filter="2">法术</li>
+							<li filter="3">建筑</li>
+						</ul>
+					</li>
+					<li id="type-rarity">
+						<span>品质</span>
+						<ul>
+							<li filter="all" class="cur">全部</li> 
+							<li filter="普通">普通</li>
+							<li filter="稀有">稀有</li>
+							<li filter="史诗">史诗</li>
+							<li filter="传奇">传奇</li>
+						</ul>
+					</li>
+					<li id="type-unlock">
+						<span>奖杯</span>
+						<ul>
+							<li filter="all" class="cur">全部</li>
+							<li filter="训练关">训练关</li>
+							<li filter="1阶竞技场">一阶竞技场</li>
+							<li filter="2阶竞技场">二阶竞技场</li>
+							<li filter="3阶竞技场">三阶竞技场</li>
+							<li filter="4阶竞技场">四阶竞技场</li>
+							<li filter="5阶竞技场">五阶竞技场</li>
+							<li filter="6阶竞技场">六阶竞技场</li>
+							<li filter="7阶竞技场">七阶竞技场</li>
+							<li filter="8阶竞技场">八阶竞技场</li>
+							<!-- <li filter="9阶竞技场">九阶竞技场</li> -->
+						</ul>
+					</li>
+				</nav>
+
+				<ul id="card_list">
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+<script src="./state/jquery-2.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+
+var alldata = [];
+
+$(function(){
+	$.ajax({
+        url : "http://vgdb.ptbus.com/api/?s=card_list",
+        post : "GET",
+        dataType : "jsonp",
+        success : function(data){            
+            if(data.code == 0){               
+				alldata = data.result;
+				pagefuns.initcontent(alldata);
+				pagefuns.initpagelis();
+
+				$("#all-card").on("click",function(){
+					window.location.reload();
+					pagefuns.initcontent(alldata);
+
+					$(this).siblings().removeClass("collapse").find("li").removeClass("cur");
+
+				})
+			
+            }
+        }
+    })
+
+
+	$("#filter-nav > li").on("click",function(){
+
+		$(this).has("span").addClass("collapse").siblings().removeClass("collapse");
+		return false;
+	})
+})
+var pagefuns=(function(){
+	var originData=null;
+	function initcontent(result){
+		if(originData==null){
+			originData=result;
+			}
+			
+			var liststr=[],
+				a_name = [],
+                a_icon = [],
+                a_category = [],
+                a_rarity = [],
+                a_target = [],
+                a_elixir = [],
+                a_unlock = [],
+				a_pinyin = [];
+	 $.each(result,function(i){
+            var isNew = result[i]["new"] ? "class=\"new\"" : "";
+                    a_name.push(result[i].name);
+                    a_icon.push(result[i].big_icon);
+                    a_category.push(result[i].category);
+                    a_rarity.push(result[i].rarity);
+                    a_target.push(result[i].target);
+                    a_elixir.push(result[i].elixir);
+                    a_unlock.push(result[i].unlock_trophies);
+                    a_pinyin.push(result[i].pinyin);
+                    liststr.push("<li " + isNew +  " data-category=\""+ a_category[i] +"\" data-rarity=\""+ a_rarity[i] +"\" data-target=\""+ a_target[i] +"\" data-elixir=\""+ a_elixir[i] +"\" data-unlock=\""+ a_unlock[i] +"\" data-pinyin=\""+ a_pinyin[i] +"\"><a href=\"detail.html?heroid=" + result[i].id +"\"><img src=\"" + a_icon[i] +"\"><span>" + a_name[i] +"</span></a></li>")
+                })
+		$("#card_list").html(liststr.join(""));
+	
+	}
+	function initpagelis(){
+		
+		$("#type-category li,#type-rarity li,#type-unlock li").on("click",function(){
+			if($(this).hasClass("cur"))return;
+			$(this).addClass("cur").siblings(".cur").removeClass("cur");
+				changetypefilter();
+			})
+		}
+		
+
+		$("body,html").on("click",function(){
+			$("#type-category,#type-rarity,#type-unlock").removeClass("collapse")
+		})
+	function changetypefilter(){
+		var filterob={
+				"type":$("#type-category li.cur").attr("filter"),
+				"quolity":$("#type-rarity li.cur").attr("filter"),
+				// "attacktype":$("#type-target li.cur").attr("filter"),
+				// "holywatercost":$("#type-elixir li.cur").attr("filter"),
+				"unlockcost":$("#type-unlock li.cur").attr("filter")
+				}
+			var newresult=originData;
+			for(var i in filterob){
+				console.log(filterob[i])
+				if(filterob[i]=="all") continue;
+				switch(i){
+					case "type":
+						
+						newresult=newresult.filter(function(ele){
+
+							return ele.category==filterob[i];
+							
+						})
+						console.log(newresult)
+					break;
+					case "quolity":
+						newresult=newresult.filter(function(ele){
+							return ele.rarity==filterob[i];
+						})
+						console.log(newresult)
+					break;
+					// case "attacktype":
+					// newresult=_(newresult).filter(function(ele){
+					// 	return ele.target==filterob[i];
+					// 	})
+					// break;
+					// case "holywatercost":
+					// newresult=_(newresult).filter(function(ele){
+					// 	return ele.elixir==filterob[i];
+					// 	})
+					// break;
+					case "unlockcost":
+						newresult=newresult.filter(function(ele){
+							return $.trim((ele.unlock_trophies))==$.trim(filterob[i]);
+						})
+						console.log(newresult)
+					break;
+					default:
+					break;
+					
+					}
+				
+				}	
+				initcontent(newresult);
+				
+		}
+	
+	var myfuns={
+			"initcontent":initcontent,
+			"initpagelis":initpagelis
+		}
+	return  myfuns;
+	})()
+
+
+</script>
+
+</body></html>

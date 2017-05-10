@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*----------专区攻略聚合------------------*/
+strong {font-weight: 500;}
+.zqjhicon{background: url("http://www.wan68.com/gl/static/images/v1/zqjhicon.png") no-repeat;background-size:79px 35px;display: block;}
+.leftPart .zqjhcontent{padding: 0px;}
+.boxtop{padding: 0px 8px;border-bottom: 2px solid #e7ebee;margin-bottom: 28px;}
+.oneGameGo{text-align: center;width: 100%;padding: 15px 0;border-top: 2px solid #f0f0f0;}
+.oneGameGo a{display: inline-block;width: 48%;font-size: 1.5rem;}
+.oneGameGo a i{height:35px;width:35px;margin-bottom: 10px;}
+.oneGameGo .wdgc i{background-position:-44px 0;}
+.oneGameGo .download i{background-position:0 0;}
+.vericlline{width: 2px;height: 35px;background-color: #f0f0f0;display: none;vertical-align: middle;padding: 0;}
+.gmname .vericlline {height: 10px; margin: 0 5px;}
+.gmname .line2{display: none;}
+.gmname .pcgmname{display:inline-block;width:30%;max-width:348px;}
+.pcgintro{text-overflow: ellipsis;white-space: nowrap;overflow: hidden;display: inline-block; width: 230px;max-width: 364px;vertical-align: middle;}
+/*快捷栏*/
+.kjl{margin-bottom: 28px;}
+.imgList{padding: 15px 0 5px;border-bottom: 2px solid #e7ebee;}
+.imgList ul{/*padding: 0 8px;*/margin: 0;}
+.imgList .col-xs-6, .imgList .col-sm-6, .imgList .col-md-3{padding-left: 9px; padding-right: 9px;}
+.imgList ul li{float:left;margin-bottom: 10px; /*width: 14.5rem;height: 6.667rem;*/}
+/*.imgList ul li:nth-child(2n-1){margin-right: 10px;}*/
+.imgList ul li img{width: 100%;}
+/*攻略大全*/
+.nav>li>a{padding: 0;}
+
+/*.nav>li>a:focus, .nav>li>a:hover{background-color: #5677fc;color: #fff; border-radius: 3.5rem; -moz-border-radius: 3.5rem; -webkit-border-radius: 3.5rem;}*/
+/*.hottopic ul{margin-top: 15px;}*/
+/*.hottopic ul li{  padding: 0px 17px;float: left; margin: 0 14px 15px 8px; height: 3.5rem; background-color: #f0f0f0; font-size: 1.7rem; line-height: 3.5rem; text-align: center; border-radius: 3.5rem; -moz-border-radius: 3.5rem; -webkit-border-radius: 3.5rem;}*/
+/*.hottopic ul li.active, .hottopic ul li:hover{color: #fff;background-color: #5677fc;}*/
+/*.hottopic ul li.active a{color: #fff;}*/
+.nav>li>a:focus{background-color: #5677fc;color: #fff; border-radius: 3.5rem; -moz-border-radius: 3.5rem; -webkit-border-radius: 3.5rem;}
+.nav>li>a:hover {text-decoration: none;background-color: rgba(0,0,0,0);}
+.hottopic ul{margin-top: 15px;}
+.hottopic ul li{  padding: 0px 11px;float: left; margin: 0 11px 15px 8px; height: 3.5rem; background-color: #f0f0f0; font-size: 1.7rem; line-height: 3.6rem; text-align: center; border-radius: 3.5rem; -moz-border-radius: 3.5rem; -webkit-border-radius: 3.5rem;}
+.hottopic ul li.active{color: #fff;background-color: #5677fc;}
+.hottopic ul li.active a{color: #fff;}
+
+.hottopic .seprLine{margin: 0px;}
+.questionbox{padding: 0 8px;}
+.questionbox .q-detail{padding: 15px 0 19px;}
+.q-detail h4{font-size: 1.7rem}
+.q-detail span{color: #919191;font-size: 1.2rem;}
+.gmname{margin-top: 18px;}
+@media screen and (min-width: 997px) {
+    hr{display: none;}
+    .highlight { height: 25px; }
+    .boxtop { border-bottom: 1px solid #e7ebee; margin-bottom: 30px; }
+    .pcgintro{width: 230px;}
+    .gameimg{width: 69px;height: 69px;margin-bottom: 20px;}
+    .gmname{margin-top: 28px;}
+    .gmname p{display: inline;}
+    .gmname .vericlline { height: 20px; margin: 0 20px;display: inline-block; }
+    .gmname .line2{display: inline-block;}
+    .oneGameGo{border-top: 1px solid #f0f0f0;}
+    .oneGameGo a{font-size: 14px;width: 100%!important;}
+    .oneGameGo a i{display: inline-block; vertical-align: middle; margin-right: 8px;}
+    .oneGameGo .wdgc i.zqjhicon{width:35px;height:35px;background:url("http://www.wan68.com/gl/static/images/v1/wdgcpc.png") no-repeat;  margin-bottom: 0;}
+    .box-title { font-size: 18px; font-weight: 700; }
+    .hottopic ul{margin-top: 30px;}
+    .hottopic ul li{font-size: 14px;height: 34px; line-height: 34px; border-radius: 17px; -moz-border-radius: 17px; -webkit-border-radius: 17px;}
+    .imgList{padding: 20px 0 10px;  border-bottom: 1px solid #e7ebee; }
+    .imgList ul li{margin-bottom: 20px;
+        /*margin-right: 18px;
+        width: 175px;height: 80px;*/
+        }
+    /*.imgList ul li:nth-child(2n-1) { margin-right: 18px; }
+    .imgList ul li:nth-child(4n){margin-right: 0;}*/
+    .q-detail h4, .q-detail span{font-size: 14px;}
+    .questionbox .q-detail { padding: 28px 0 28px; border-top: 1px solid #f0f0f0; }
+    .questionbox .q-detail:first-child{border: none;}
+    .addmore { border: none; background-color: #f5f5f5; }
+
+    .nav>li>a:hover{background-color: #5677fc;color: #fff; border-radius: 3.5rem; -moz-border-radius: 3.5rem; -webkit-border-radius: 3.5rem;}
+    .hottopic ul li:hover{color: #fff;background-color: #5677fc;}
+}
+@media screen and (max-width: 996px) {
+    .pcgintro{width: 0px;}
+}
+@media screen and (min-width: 1200px){
+    .pcgintro{width: 230px;}
+}
+@media screen and (min-width: 1600px){
+    .pcgintro{width: 330px;}
+}
+@media screen and (max-width: 390px){
+   .gmname {
+  max-width: 55%;
+    } 
+}
+@media screen and (max-width: 345px){
+   .gmname {
+  max-width: 48%;
+    } 
+}
+@media screen and (max-width: 325px){
+   .gmname {
+  max-width: 44%;
+    } 
+}

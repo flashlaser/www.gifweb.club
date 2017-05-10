@@ -1,0 +1,64 @@
+
+<a id="ios" href="javascript:void(0);" onclick="openApp({ios:{scheme:'sinaRaidersQAForjtlq://jump/jtlq',url:'https://wan68.com/jump/jtlq/question?param=30810',weichat:'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider'},android:{scheme:'sinaRaidersQAForjtlq://jump/jtlq/question?param=30810',url:'http://mg.games.sina.com.cn/97973/glapp/QMGL-channel-0.apk',weichat:'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider'}})">https://www.wan68.com/jump/jtlq/question?param=30810</a>
+<hr />
+<a id="ios" href="javascript:void(0);" onclick="openApp({ios:{scheme:'sinaRaidersQA://jump/qmgl',url:'https://wan68.com/jump/qmgl',weichat:'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider'},android:{scheme:'sinaRaidersQA://jump/qmgl',url:'http://mg.games.sina.com.cn/97973/glapp/QMGL-channel-0.apk',weichat:'http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider'}})">全民</a>
+<hr />
+<p></p>
+<script>
+    function openApp(options) {
+        this.options = {
+            android: {
+                scheme : '',
+                url : '',
+                weichat : ''
+            },
+            ios: {
+                scheme: '',
+                url : '',
+                weichat : ''
+            }
+        };
+        for (i in options) {
+            this.options[i] = options[i];
+        }
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (/android/.test(ua)) {
+            var download = this.options.android;
+            if (/micromessenger/.test(ua)) {
+                if (download.weichat) {
+                    location.href = download.weichat;
+                }
+            } else if (download.url) {
+                var timestamp = Date.parse(new Date());
+                setTimeout(function() {
+                    if (download.url && Date.parse(new Date()) - timestamp < 3035) {
+                        location.href = download.url;
+                    }
+                }, 3000);
+                location.href = download.scheme.toLowerCase();
+            }
+        } else {
+            var download = this.options.ios;
+            if (/micromessenger/.test(ua)) {
+                if (download.weichat) {
+                    location.href = download.weichat;
+                }
+            } else {
+                var mat = /iphone os (\d+)/g.exec(ua);
+                if (mat && mat[1] > 8 && download.scheme) {
+                    location.href = download.url;
+                    return;
+                } else if (download.url) {
+                    var timestamp = Date.parse(new Date());
+                    setTimeout(function() {
+                        if (download.url && Date.parse(new Date()) - timestamp < 2026) {
+                            location.href = download.url;
+                        }
+                    }, 2000);
+                    location.href = download.scheme;
+                }
+            }
+        }
+    }
+</script>

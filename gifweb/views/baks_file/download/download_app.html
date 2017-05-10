@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>全民攻略</title>
+		<meta name="keywords" content="97973手游网，新浪手机游戏，手机客户端，app，97973app，97973有礼，973有礼，973手机客户端" />
+		<meta name="description" content="权威手游媒体97973.com的移动客户端下载页" />
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?457beebb622d3780f367cfa604ba91a9";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+	</head>
+	<body>
+		<div id="div" align="center" style="width:100%"><img id='img' src="/gl/static/images/download/download_app.png" style="max-width:100%" /></div>
+
+		<script type="text/javascript">
+
+		function tips_img(src, pos) {
+			document.getElementById('img').setAttribute('src', src);
+			document.getElementById('div').setAttribute('align', pos);
+
+		}
+
+
+		function IsPC() {
+			var userAgentInfo = navigator.userAgent;
+			var Agents = new Array("Android", "iPhone", "SymbianOS",
+					"Windows Phone", "iPad", "iPod");
+			var flag = true;
+			for ( var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+
+		var jump_href = '';
+		if (IsPC()) {
+			<{if !empty($pc.url)}>
+				jump_href = '<{$pc.url}>';
+			<{/if}>
+
+			<{if !empty($pc.img)}>
+				tips_img('<{$pc.img}>', '<{$pc.img_pos}>');
+			<{/if}>
+		} else {
+			var ua = navigator.userAgent.toLowerCase();
+			if(ua.match(/micromessenger/i)){
+				if (ua.match(/android/i)) {
+					<{if empty($weichat.android_download)}>
+						jump_href = "";
+					<{else}>
+						jump_href = '<{$weichat.android_download}>';
+					<{/if}>
+
+
+					<{if !empty($weichat.android_img)}>
+						tips_img('<{$weichat.android_img}>', '<{$weichat.img_pos}>');
+					<{/if}>
+				}
+				if (ua.match(/(iphone|ipad|ios)/i)) {
+					<{if empty($weichat.ios_download)}>
+						jump_href = "";
+					<{else}>
+						jump_href = '<{$weichat.ios_download}>';
+					<{/if}>
+
+					<{if !empty($weichat.ios_img)}>
+						tips_img('<{$weichat.ios_img}>', '<{$weichat.img_pos}>');
+					<{/if}>
+				}
+			}else{
+				if (ua.match(/android/i)) {
+					<{if empty($other.android_download)}>
+						jump_href = "";
+					<{else}>
+						jump_href = '<{$other.android_download}>';
+					<{/if}>
+
+					<{if !empty($other.android_img)}>
+						tips_img('<{$other.android_img}>', '<{$other.img_pos}>');
+					<{/if}>
+				}
+				if (ua.match(/(iphone|ipad|ios)/i)) {
+					<{if empty($other.ios_download)}>
+						jump_href = "";
+					<{else}>
+						jump_href = '<{$other.ios_download}>';
+					<{/if}>
+
+
+					<{if !empty($other.ios_img)}>
+						tips_img('<{$other.ios_img}>', '<{$other.img_pos}>');
+					<{/if}>
+				}
+			}
+		}
+
+
+		if (jump_href) {
+			<{if !empty($jump_img)}>
+				tips_img('<{$jump_img}>', '<{$jump_img_pos}>');
+			<{/if}>
+			window.location.href = jump_href;
+		}
+		</script>
+	</body>
+	</html>

@@ -1,0 +1,75 @@
+<{include file="common/header.tpl"}>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?457beebb622d3780f367cfa604ba91a9";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<link href="http://games.sina.com.cn/308/2014/reset.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/gl/static/hd/jtlq3/pc/css/index.css?v=12051631">
+
+<div class="page part1">
+    <div class="part1_container ">
+        <a href="javascript:;" class="rulebtn"></a>
+    </div>
+    <div class="rulebox">
+        <a href="javascript:;" class="closerule"></a>
+        <div class="ruleinfo">
+            <div class="ruletext">
+                <h2>【活动规则】</h2>
+                <h3>进入活动页面后，可为情怀和竞技两种观点投票，并且可在下方的评论区对两种观点进行评论。</h3>
+                <p>点赞数排名前十的评论：</p>
+                <p>点赞数最高的获得30Q币奖励</p>
+                <p>点赞数排名第二~六的获得20Q币奖励</p>
+                <p>点赞数排名第七~十的获得10Q币奖励。</p>
+                <h3>每个账号只能参与一次活动</h3>
+            </div>
+            <div class="ruletext">
+                <h2>【活动时间】</h2>
+                <h3>2016年12月16日——2016年12月31日</h3>
+            </div>
+            <p class="ps">PS：支持任一观点，都有机会获得Q币奖励。</p>
+        </div>
+    </div>
+    <div class="navigation">
+        <ul class="navlist">
+            <li class="gameswww" data-idt="400"><a href="http://jtlq.0708.com/t1/164.html" target="_blank"><img src="/gl/static/hd/jtlq3/pc/images/icon1.png"/><p>街头篮球</p><p>手游官网</p></a></li>
+            <li class="connectus" data-idt="1065"><a href="https://jq.qq.com/?_wv=1027&k=42Ao2RV" target="_blank"><img src="/gl/static/hd/jtlq3/pc/images/qq.png"/><p>加入我们</p></a></li>
+            <li class="downgames" data-idt="1682"><a href="http://dlied5.myapp.com/myapp/1105410169/freestyle/2017_com.tencent.freestyle_h100_1.1.0.1.apk" target="_blank"><img src="/gl/static/hd/jtlq3/pc/images/icon3.png"/><p>下载游戏</p></a></li>
+        </ul>
+    </div>
+</div>
+<!-- <script type="text/javascript" src="http://games.sina.com.cn/307/2014/1/jquery-1.7.2.min.js"></script> -->
+
+<script type="text/javascript">
+    //活动规则
+    $(".rulebtn").on("click",function(){
+        $(".rulebox").show();
+    })
+    $(".closerule").on("click",function(){
+        $(".rulebox").hide();
+    })
+    //导航
+    $(".navlist li").on("click",function(){
+        var obj = $(this);
+        var idt = obj.data("idt") || obj.attr("data-idt");
+        var d = $("body,html");
+        d.stop(); d.animate({scrollTop: idt}, 800);
+        $(".headnav a").removeClass("current");
+        obj.addClass("current");
+    })
+    $(window).resize(function(){
+        var w = 350-(1903 - $(window).width())/2;
+        var left = w<0?0:w;
+
+        $(".navigation").css("left",left);
+    });
+    $(window).resize();
+</script>
+
+<{include file="common/footer.tpl"}>

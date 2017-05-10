@@ -1,0 +1,630 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://n.sinaimg.cn/games/69acd7be/20151118/createjs-2015.05.21.min.js"></script>
+<title>全民手游攻略APP</title>
+<meta content="全民,手游,攻略,问答,新浪,全民超神,欢乐斗地主,云中歌,梦幻西游,大话西游,花千骨,刀塔传奇,部落冲突,海岛奇兵,炉石传说,我叫MT,开心消消乐,热血传奇,全民飞机大战,植物大战僵尸,啪啪巫妖王,球球大作战,全民K歌,死亡日记" name="keywords"/>
+<meta content="全民手游攻略是新浪游戏子公司，为玩家量身打造的一款手游攻略大全，及专业游戏问答社区。网罗通关制胜技巧秘籍，帮助玩家炼就骨灰级别的得力法宝。最全手游资料站和攻略站，帮助你走向达人之路，绕过坎坷路途，用最省钱的方式最快速的达到超神。最火爆的游戏问答，游戏大神带你开启你的手游人生，寻找和你志同道合的游戏小伙伴大家一起并肩作战。" name="description"/>
+<style type="text/css">
+    body,html{background:#fff;padding:0;margin:0}#progress{position:fixed;top:0;left:0;right:0;bottom:0;background:#d1f544;text-align:center;font-size:40px}#progress .phone{width:115px;height:184px;background:url(/gl/static/images/download/h5/ph.png) no-repeat;background-size:cover;position:absolute;top:50%;left:50%;margin:-122px 0 0 -52px}#progress .phone .qt{width:31px;height:37px;background:url(/gl/static/images/download/h5/b.png);margin:60px auto 100px;-webkit-animation:xuanzhan 1s infinite;animation:xuanzhan 1s infinite}@-webkit-keyframes xuanzhan{from{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}to{-webkit-transform:rotateY(360deg);transform:rotateY(360deg);opacity:1}}@keyframes xuanzhan{from{-webkit-transform:rotateY(0);transform:rotateY(0);opacity:1}to{-webkit-transform:rotateY(360deg);transform:rotateY(360deg);opacity:1}}#demoCanvas{display:block;width:100%;margin:0;padding:0}
+</style>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?457beebb622d3780f367cfa604ba91a9";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div style="display: none"><img src="/gl/static/images/download/h5/logo.png" alt="描述"/></div>
+<div id='progress'>
+    <div class="phone">
+        <div class="qt"></div>
+        <span>100%</span>
+    </div>
+</div>
+<canvas id="demoCanvas" width="750" height="1334"></canvas>
+<script>
+function IsPC() {
+	var userAgentInfo = navigator.userAgent;
+	var Agents = new Array("Android", "iPhone", "SymbianOS",
+			"Windows Phone", "iPad", "iPod");
+	var flag = true;
+	for ( var v = 0; v < Agents.length; v++) {
+		if (userAgentInfo.indexOf(Agents[v]) > 0) {
+			flag = false;
+			break;
+		}
+	}
+	return flag;
+}
+
+var jump_href = 'http://wan68.com/download/app';
+if (IsPC()) {
+	jump_href = "http://wan68.com/download";
+} else {
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.match(/micromessenger/i)){
+		if (ua.match(/android/i)) {
+			jump_href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider";
+		}
+		if (ua.match(/(iphone|ipad|ios)/i)) {
+			jump_href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.sina.sinaraider";
+		}
+	}else{
+		if (ua.match(/android/i)) {
+			jump_href = "http://mg.games.sina.com.cn/97973/glapp/QMGL-channel-0.apk";
+		}
+		if (ua.match(/(iphone|ipad|ios)/i)) {
+			jump_href = "https://itunes.apple.com/app/id1048841352?mt=8";
+		}
+	}
+}
+
+
+function silent_request(url) {
+	var iframe = document.createElement("iframe");
+	iframe.style.display = "none";
+	iframe.id = "iframe";
+	document.body.appendChild(iframe);
+	document.getElementById("iframe").src = url;
+}
+
+
+function app(f){
+    var downloadurl = 'http://e.games.sina.com.cn/statistic/index/?url=a9dfd812493d13cd9ad6729a7e69038d';
+    createjs.Ticker.setFPS(72);
+    var stage = new createjs.Stage("demoCanvas");
+    createjs.Touch.enable(stage);
+    //元素
+    var qt = new createjs.SpriteSheet({
+        framerate: 30,
+        images: ['/gl/static/images/download/h5/Qt.png'],
+        frames: {width:42, height:72,count:4,"regX": 21,"regY": 72},
+        animations: {
+            "z": [0],
+            "c": [1],
+            "b": [2],
+            "bl": [3]
+        }
+    });
+    var qt1  = new createjs.Sprite(qt,'c').set({x:224,y:900});
+    var qt2  = new createjs.Sprite(qt,'c').set({x:185,y:0});
+    var qt3  = new createjs.Sprite(qt,'c').set({x:77,y:0});
+    var qt4  = new createjs.Sprite(qt,'c').set({x:222,y:0});
+    var qt5  = new createjs.Sprite(qt,'c').set({x:51,y:0});
+    var qtarr = [qt1,qt2,qt3,qt4,qt5];
+    var n = 0;
+    var cur = 0;//当前页码
+    var gamebg = new createjs.Bitmap("/gl/static/images/download/h5/bg.png");
+    var mask = new createjs.Bitmap("/gl/static/images/download/h5/mask.png");
+    mask.on('click', function (e) {
+        if(e.stageX>227&&e.stageX<527&&e.stageY>739&&e.stageY<826){
+        	silent_request(downloadurl);
+            window.location.href = jump_href;
+        }else{
+            stage.removeChild(mask);
+        }
+    });
+    //扫描中
+    var sm= new createjs.SpriteSheet({
+        framerate: 30,
+        images: ['/gl/static/images/download/h5/sm.png'],
+        frames: {width:153, height:89,count:4},
+        animations: {
+            "s": {
+               frames:[0,1,2,3],
+               speed:0.1
+            }
+        }
+    });
+    var saomiao  = new createjs.Sprite(sm,'s').set({x:224,y:900});
+    //文字标题部分
+    var title = new createjs.Text("全民手游攻略", "bold 76px Microsoft YaHei", "#ff9000").set({x:374,y:130,textAlign:'center'});
+    var subtitle = new createjs.Text("最全面的手游攻略问答APP", "36px Microsoft YaHei", "#ff9000").set({x:162,y:228});
+    var text = new createjs.Text("...", "40px Microsoft YaHei", "#ff9000").set({x:296,y:325});
+    var colors = ['#ff9000','#ab4fff','#00a6ff','#ff6b36','#3eca00'];
+
+
+    //浮动的东西
+    var s11 = new createjs.Bitmap("/gl/static/images/download/h5/s11.png").set({x:570,y:419});
+    createjs.Tween.get(s11).to({x:s11.x+200,y:s11.y-300,scaleX:0.5,scaleY:0.5,alpha:0.4},5000);
+    var s12 = new createjs.Bitmap("/gl/static/images/download/h5/s12.png").set({x:83,y:0});
+    createjs.Tween.get(s12).to({y:549},5000);
+    var s21 = new createjs.Bitmap("/gl/static/images/download/h5/s21.png").set({x:68,y:-100});
+    var s22 = new createjs.Bitmap("/gl/static/images/download/h5/s22.png").set({x:638,y:-100});
+    var s31 = new createjs.Bitmap("/gl/static/images/download/h5/s31.png").set({x:68,y:-100});
+    var s32 = new createjs.Bitmap("/gl/static/images/download/h5/s32.png").set({x:638,y:-100});
+    var s41 = new createjs.Bitmap("/gl/static/images/download/h5/5.png").set({x:68,y:-100});
+    var s42 = new createjs.Bitmap("/gl/static/images/download/h5/6.png").set({x:638,y:-100});
+    var s51 = new createjs.Bitmap("/gl/static/images/download/h5/7.png").set({x:68,y:-100});
+    var s52 = new createjs.Bitmap("/gl/static/images/download/h5/8.png").set({x:638,y:-100});
+    var piafu = [s11,s12,s21,s22,s31,s32,s41,s42,s51,s52];
+
+    var oncearr = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+    //指引
+    var zhiyin = new createjs.Bitmap('/gl/static/images/download/h5/zhiyin.png');
+    var zhiyin_pos = {x:449,y:1053,v:-1,scaleX:1.3,scaleY:1.3};
+    zhiyin.set(zhiyin_pos);
+
+    //添加到舞台
+    stage.addChild(gamebg,title,subtitle,text,qt1,zhiyin,qt2,qt3,qt4,qt5,s11,s12);
+    //生成金币
+    var jinbisheet = new createjs.SpriteSheet({
+        framerate: 1,
+        images: ['/gl/static/images/download/h5/jinbi.png'],
+        frames: {width:24, height:30,count:4,"regX": 12,"regY": 15},
+        animations: {
+            run: {
+                frames:[0,0,1,1,2,2,3,3],
+                speed:1
+            }
+        }
+    });
+    var jinbi  = new createjs.Sprite(jinbisheet,'run').set({x:100,y:100});
+    var jibbi_map = [
+        [0,267,765],[0,302,784],[0,481,906],[0,514,886],
+        [1,263,768],[1,298,790],[1,458,775],[1,485,761],[1,519,742],
+        [2,227,750],[2,263,770],[2,295,793],
+        [3,376,846],[3,409,833],[3,442,809],[3,477,793]
+    ];
+    var jinbi_arr = [];
+    function jinbi_prodcut(n){
+        //jinbi_arr = [];
+        jibbi_map.forEach(function (el,i) {
+            //console.log(el);
+            if(el[0]==n){
+                var jinbi = new createjs.Sprite(jinbisheet,'run').set({x:el[1],y:el[2]});
+                jinbi.pos = el[2];
+                jinbi.page = el[0];
+                jinbi_arr.push(jinbi);
+                stage.addChild(jinbi);
+            }
+        });
+    }
+    jinbi_prodcut(0);
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    //画线
+    var x1 = 229,y1 = 306,x2 = 521,y2 = 390;
+    var zhouchang = (x2 - x1)*2 + (y2 - y1)*2;
+    var count = 0;
+    var g = new createjs.Graphics();
+    function huaxian(color){
+        if(n<100&&cur>0){
+            text.text = '';
+            return;
+        }
+        text.color = colors[cur];
+        if(count>=zhouchang) return;
+        count+=10;
+        g.setStrokeStyle(1);
+        g.beginStroke(color);
+        g.moveTo(x1,y1);
+        if(count<(x2-x1)){
+            g.lineTo(x1+count,y1);
+            text.text = '立';
+            //if(cur==4){
+            //    text.x = 256;
+            //    text.text ='分享';
+            //}
+        }
+        if(count>(x2-x1)&&count<zhouchang/2){
+            g.lineTo(x2,y1);
+            g.lineTo(x2,y1+count-(x2 - x1));
+            text.text = '立即';
+            //if(cur==4){
+            //    text.text ='分享到';
+            //}
+        }
+
+        if(count>zhouchang/2&&count<zhouchang/2+(x2 - x1)){
+            g.lineTo(x2,y1);
+            g.lineTo(x2,y2);
+            g.lineTo(x2-(count-zhouchang/2),y2);
+            text.text = '立即体';
+            //if(cur==4){
+            //    text.text ='分享到朋友';
+            //}
+        }
+        if(count>(zhouchang/2+(x2 - x1))&&count<zhouchang){
+            g.lineTo(x2,y1);
+            g.lineTo(x2,y2);
+            g.lineTo(x1,y2);
+            g.lineTo(x1,y2-(count-(zhouchang/2+(x2 - x1))));
+            text.text = '立即体验';
+            //if(cur==4){
+            //    text.text ='分享到朋友圈';
+            //}
+        }
+        if(count>=zhouchang){
+            g.lineTo(x2,y1);
+            g.lineTo(x2,y2);
+            g.lineTo(x1,y2);
+            g.lineTo(x1,y1);
+            //count = 0;
+            //g.clear();
+        }
+        //console.log(count);
+    }
+    var shape = new createjs.Shape(g);
+    stage.addChild(shape);
+
+    createjs.Ticker.addEventListener("tick", function (e) {
+        n++;
+        huaxian(colors[cur]);
+        stage.update();
+        //console.log(zhiyin_pos.y-zhiyin.y);
+        zhiyin.y+=zhiyin_pos.v;
+        if(Math.abs(zhiyin_pos.y-zhiyin.y)>40){
+            zhiyin_pos.v *= -1;
+        }
+        //------------------
+        //吃金币
+        var x = qtarr[cur].x;
+        var y = qtarr[cur].y;
+        jinbi_arr.forEach(function (el,i) {
+            //console.log(el.page,cur);
+            if(el.page!=cur){
+                el.visible = false;
+            }
+            if(el.page!=cur) return;
+            var distence = Math.sqrt((x-el.x)*(x-el.x)+(y-el.y)*(y-el.y));
+            if(distence<20&&!el.disout){
+                el.disout = true;
+                createjs.Tween.get(el).to({y:el.pos-100,alpha:0},1000).call(function () {
+                    el.visible = false;
+                });
+            }
+        });
+
+    });
+    //q弹运动
+    var arr= [];
+    function ping(n){
+        //console.log(oncearr);
+
+            piafu.forEach(function (el,i) {
+                if(2*n==i||i==(2*n+1)){
+                    setTimeout(function(){
+                        el.visible = true;
+                    },500);
+                }else{
+                    el.visible = false;
+                }
+            });
+
+
+        cur = n;
+        qtarr.forEach(function (el,i) {
+            if(i==n){
+                el.visible = true;
+            }else{
+                el.visible = false;
+            }
+        });
+        title.set({x:374,y:130,textAlign:'center'});
+        subtitle.set({x:162,y:228});
+        text.set({x:296,y:325});
+
+        if(n==0){
+            title.text = '全民手游攻略';
+            title.color = subtitle.color = '#ff9000';
+            subtitle.text = '最全面的手游攻略问答APP';
+            subtitle.set({x:162,y:228});
+            if(oncearr[n]==0){
+                createjs.Tween.get(qt1).to({x:375,y:966},1000).call(function () {
+                    qt1.gotoAndPlay('b');
+                }).to({x:553,y:885},1000).call(function () {
+                    qt1.gotoAndPlay('bl');
+                }).to({x:522,y:758},1000).call(function () {
+                    qt1.gotoAndPlay('z');
+                }).to({x:380,y:834},1000).call(function () {
+                    qt1.gotoAndPlay('bl');
+                }).to({x:245,y:755},1000).call(function () {
+                    qt1.gotoAndPlay('b');
+                }).to({x:254,y:675},500).call(function () {
+                    qt1.gotoAndPlay('bl');
+                }).to({x:278,y:666},300).call(function () {
+                    qt1.gotoAndPlay('bl');
+                }).to({x:272,y:594},300).call(function () {
+                    qt1.gotoAndPlay('c');
+                }).to({x:290,y:498},500).call(function () {
+                    qt1.gotoAndPlay('c');
+                }).to({x:459,y:596},500).call(function () {
+                    qt1.gotoAndPlay('c');
+                }).to({x:466,y:793},500).call(function () {
+                    qt1.gotoAndPlay('b');
+                }).to({x:524,y:756},500).call(function () {
+                    qt1.gotoAndPlay('bl');
+                }).to({x:537,y:871},500).call(function () {
+                    qt1.gotoAndPlay('z');
+                }).to({x:436,y:942},500).call(function () {
+                    qt1.gotoAndPlay('c');
+                }).to({x:458,y:950},500).call(function () {
+                    qt1.gotoAndPlay('c');
+                });
+            }
+
+        }
+        //第二屏
+        if(n==1){
+            createjs.Tween.get(s21).to({x:68,y:509},5000);
+            createjs.Tween.get(s22).to({x:638,y:393},3000);
+
+            stage.addChild(s21,s22);
+            title.text = '一键扫描';
+            title.color = subtitle.color = '#aa57ff';
+            subtitle.text = '知你心意 非我莫属';
+            subtitle.x = 227;
+            //console.log('第二屏');
+            qt1.visible = false;
+            zhiyin_pos = {x:446,y:907,v:-1};
+            zhiyin.set(zhiyin_pos);
+            if(oncearr[n]==0){
+                jinbi_prodcut(cur);
+                createjs.Tween.get(qt2).to({x:185,y:1049},1000).call(function () {
+                    qt2.gotoAndPlay('b');
+                }).to({x:189,y:741},1000).call(function () {
+                    qt2.gotoAndPlay('c');
+                }).to({x:201,y:735},200).call(function () {
+                    qt2.gotoAndPlay('c');
+                }).to({x:359,y:819},1000).call(function () {
+                    qt2.gotoAndPlay('b');
+                }).to({x:528,y:726},1000).call(function () {
+                    qt2.gotoAndPlay('bl');
+                }).to({x:504,y:676},300).call(function () {
+                    qt2.gotoAndPlay('z');
+                }).to({x:407,y:699},500).call(function () {
+                    qt2.gotoAndPlay('bl');
+                }).to({x:358,y:686},500).call(function () {
+                    qt2.gotoAndPlay('c');//
+                    if(cur==1){
+                        saomiao.visible = true;
+                        saomiao.set({x:353,y:580});
+                        stage.addChild(saomiao,qt2);
+                    }
+                    qt2.gotoAndPlay('z');//
+
+                }).wait(1000).to({x:413,y:703},500).call(function () {
+                    qt2.gotoAndPlay('c');
+
+                }).to({x:497,y:654},500).call(function () {
+                    qt2.gotoAndPlay('bl');
+                }).to({x:539,y:720},500).call(function () {
+                    qt2.gotoAndPlay('z');
+                }).to({x:422,y:795},500).call(function () {
+                    qt2.gotoAndPlay('c');
+                }).to({x:447,y:809},500).call(function () {
+                    qt2.gotoAndPlay('c');
+                });
+            }
+
+        }else{saomiao.visible = false;}
+        if(n==2){
+
+            createjs.Tween.get(s31).to({x:68,y:509},5000);
+            createjs.Tween.get(s32).to({x:638,y:393},3000);
+            stage.addChild(s31,s32);
+            //console.log('第三屏');
+            title.text = '最全攻略';
+            title.color = subtitle.color = '#00a8ff';
+            subtitle.text = '省时省力 进阶大神';
+            subtitle.x = 227;
+            qt2.visible = false;
+            zhiyin_pos = {x:74,y:772,v:-1};
+            zhiyin.set(zhiyin_pos);
+            if(oncearr[n]==0){
+                jinbi_prodcut(cur);
+                createjs.Tween.get(qt3).to({x:77,y:739},1000).call(function () {
+
+                }).to({x:375,y:914},1000).call(function () {
+                    qt3.gotoAndPlay('b');
+                }).to({x:514,y:841},600).call(function () {
+                    qt3.gotoAndPlay('bl');
+                }).to({x:506,y:776},1000).call(function () {
+                    qt3.gotoAndPlay('z');
+                }).to({x:375,y:840},1000).call(function () {
+                    qt3.gotoAndPlay('bl');
+                }).to({x:143,y:717},1000).call(function () {
+                    qt3.gotoAndPlay('z');
+                }).to({x:87,y:752},300).call(function () {
+                    qt3.gotoAndPlay('c');
+                }).to({x:188,y:807},300).call(function () {
+                    qt3.gotoAndPlay('z');
+                })
+            }
+
+        }
+
+        if(n==3){
+            zhiyin.visible = true;
+            createjs.Tween.get(s41).to({x:68,y:509},5000);
+            createjs.Tween.get(s42).to({x:638,y:393},3000);
+            stage.addChild(s41,s42);
+            //console.log('第四屏');
+            title.text = '问答社区';
+            title.color = subtitle.color = '#ff6c40';
+            subtitle.text = '大神云集 专业解答';
+            subtitle.x = 227;
+            qt3.visible = false;
+            zhiyin_pos = {x:206,y:823,v:-1};
+            zhiyin.set(zhiyin_pos);
+
+            if(oncearr[n]==0){
+                jinbi_prodcut(cur);
+                createjs.Tween.get(qt4).to({x:77,y:739},1000).call(function () {
+
+                }).to({x:375,y:914},1000).call(function () {
+                    qt4.gotoAndPlay('b');
+                }).to({x:514,y:841},600).call(function () {
+                    qt4.gotoAndPlay('bl');
+                }).to({x:506,y:776},1000).call(function () {
+                    qt4.gotoAndPlay('z');
+                }).to({x:375,y:840},1000).call(function () {
+                    qt4.gotoAndPlay('bl');
+                }).to({x:143,y:717},1000).call(function () {
+                    qt4.gotoAndPlay('z');
+                }).to({x:312,y:841},300).call(function () {
+                });
+            }
+
+        }
+
+        if(n==4){
+            //console.log(arr);
+            arr.forEach(function (el,i) {
+                el.visible = true;
+                //console.log(el);
+
+            });
+            createjs.Tween.get(s51).to({x:68,y:479},5000);
+            createjs.Tween.get(s52).to({x:638,y:393},3000);
+            stage.addChild(s51,s52);
+            //console.log('第5屏');
+            title.text = '大神之路';
+            title.color = subtitle.color = '#45c800';
+            subtitle.visible = false;
+            title.y = 186;
+            qt4.visible =  zhiyin.visible = false;
+            if(oncearr[n]==0){
+                jinbi_prodcut(cur);
+                arr =[];
+                for(var i=0;i<8;i++){
+                    arr.push(new createjs.Sprite(qt,'c').set({x:51,y:0}));
+                    stage.addChild(arr[i]);
+
+                    (function(obj){
+                        createjs.Tween.get(obj).wait(i*800).to({x:51,y:941},1000).call(function () {
+                            //console.log(obj);
+                            obj.gotoAndPlay('b');
+                        }).to({x:51,y:729},1000).call(function () {
+                            obj.gotoAndPlay('b');
+                        }).to({x:81,y:710},100).call(function () {
+                            obj.gotoAndPlay('c');
+                        }).to({x:371,y:874},1000).call(function () {
+                            obj.gotoAndPlay('b');
+                        }).to({x:646,y:722},1000).call(function () {
+                        }).to({x:646,y:712,alpha:0},1000).call(function () {
+                        }).loop =true;
+                    })(arr[i]);
+                }
+            }
+
+        }else{
+            arr.forEach(function (el,i) {
+               // console.log(el,arr);
+                el.visible = false;
+            });
+        }
+
+        oncearr[n] = 1;
+
+    }
+    scene(0);
+    ping(0);
+    function scene(n){
+        createjs.Tween.get(gamebg).to({x:0,y:-1539*n},500);
+    }
+    zhiyin.on('click', function (e) {
+        moveto();
+    });
+    var running = false;
+    function moveto(jian){
+        n = 0;
+        //console.log(jian,cur);
+        jian?cur--:cur++;
+        //console.log(cur);
+        count = 0;
+        //过渡过程元素不可见
+        running = true;
+        shape.visible = text.visible = title.visible = subtitle.visible= false;
+        setTimeout(function(){
+            //console.log(cur);
+            shape.visible = text.visible = title.visible = true;
+            if(cur!=4) subtitle.visible = true;
+            running = false;
+
+
+        },500);
+        g.clear();
+        scene(cur);
+        ping(cur);
+
+    }
+
+    stage.on('click', function (e) {
+        if(e.stageX>227&&e.stageX<527&&e.stageY>300&&e.stageY<440){
+            //console.log('立即体验吧');
+            if(cur==4){
+                stage.addChild(mask);
+            }else{
+            	silent_request(downloadurl);
+                window.location.href = jump_href;
+            }
+        }
+    });
+    //监听触摸事件
+    var touchy = 0;
+    document.addEventListener('touchstart', function (e) {
+        touchy = e.touches[0].clientY;
+    },false);
+    document.addEventListener('touchmove', function (e) {
+        //console.log(e.touches[0].clientY - touchy);
+        if(e.touches[0].clientY - touchy<-100 && running==false && cur<4){
+            moveto();
+        }
+        if(e.touches[0].clientY - touchy>100 && running==false && cur>0){
+            moveto(1);
+        }
+    },false);
+
+    return moveto;
+
+}
+
+//预加载
+var queue = new createjs.LoadQueue(false);
+var loadnum = 0;
+queue.on("progress", function(event){
+    loadnum++;
+    var pg =  Math.floor(queue.progress*100);
+    //console.log("progress:", pg, queue.progress ,event.progress);
+    var process = document.querySelector('#progress span');
+    process.innerHTML = pg+'%';
+}, this);
+queue.on("complete", handleComplete, this);
+queue.loadManifest([
+    {id: "img1", src:"/gl/static/images/download/h5/5.png"},
+    {id: "img2", src:"/gl/static/images/download/h5/6.png"},
+    {id: "img3", src:"/gl/static/images/download/h5/7.png"},
+    {id: "img4", src:"/gl/static/images/download/h5/8.png"},
+    {id: "img5", src:"/gl/static/images/download/h5/9.png"},
+    {id: "img6", src:"/gl/static/images/download/h5/b.png"},
+    {id: "img7", src:"/gl/static/images/download/h5/bg.png"},
+    {id: "img8", src:"/gl/static/images/download/h5/jinbi.png"},
+    {id: "img9", src:"/gl/static/images/download/h5/mask.png"},
+    {id: "img10", src:"/gl/static/images/download/h5/ph.png"},
+    {id: "img11", src:"/gl/static/images/download/h5/Qt.png"},
+    {id: "img13", src:"/gl/static/images/download/h5/s11.png"},
+    {id: "img14", src:"/gl/static/images/download/h5/s12.png"},
+    {id: "img15", src:"/gl/static/images/download/h5/s21.png"},
+    {id: "img16", src:"/gl/static/images/download/h5/s22.png"},
+    {id: "img17", src:"/gl/static/images/download/h5/s31.png"},
+    {id: "img18", src:"/gl/static/images/download/h5/s32.png"},
+    {id: "img19", src:"/gl/static/images/download/h5/zhiyin.png"}
+]);
+function handleComplete() {
+    setTimeout(function () {
+        document.getElementById('progress').remove();
+    },0);
+    window.to = app();
+}
+</script>
+</body>
+</html>
